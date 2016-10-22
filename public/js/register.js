@@ -36,6 +36,7 @@ var Register = React.createClass({
       type: 'POST',
       url: '/insertUser',
       data: userInfo,
+      async: false
     })
     .done( function(response){
       console.log(response);
