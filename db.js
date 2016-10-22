@@ -87,6 +87,16 @@ module.exports = {
             }
         });
     },
+    deleteChatRoom: function(rm_id, callback) {
+        var getChatRoomQueryString = 'DELETE FROM chatroom WHERE rm_id =\'' + rm_id + '\'';
+        pgQuery(getChatRoomQueryString, function(err, result) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null);
+            }
+        });
+    },
     insertMessage: function(rm_id, user_id, msg_type, msg_content, unix_time, callback) {
         var insertMessageQueryString = 'INSERT INTO message VALUES (DEFAULT, \'' + rm_id + '\',\'' + user_id + '\',\'' + msg_type + '\',\'' + msg_content + '\', to_timestamp(' + unix_time + '))';
         pgQuery(insertMessageQueryString, function(err) {
