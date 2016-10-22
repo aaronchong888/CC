@@ -1,3 +1,4 @@
+var db = require('db');
 var Home = React.createClass({
   getInitialState: function () {
     return ({
@@ -6,7 +7,10 @@ var Home = React.createClass({
     });
   },
   componentDidMount: function () {
-
+    console.log('trying to insert user');
+    db.insertUser('Hugo', 'CX758', 'student', 'business', 'HK', 'en', function(err) {
+      console.log(err);
+    });
   },
   render: function () {
     return (
