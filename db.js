@@ -130,37 +130,102 @@ function check_queue() {
     console.log('Q3 waiting: ' + q3.length);
     console.log('Q4 waiting: ' + q4.length);
     console.log('Q5 waiting: ' + q5.length);
-    while (q1.length > 0){
+    if(q1.length > 0){
         if (q1.length > 1){
             uid1 = q1.shift();
             uid2 = q1.shift();
             createChatRoom(uid1, uid2);
-            continue;
+            break;
         }
         if (q2.length > 0){
             uid1 = q1.shift();
             uid2 = q2.shift();
             createChatRoom(uid1, uid2);
-            continue;
+            break;
         }
         if (q3.length > 0){
             uid1 = q1.shift();
             uid2 = q3.shift();
             createChatRoom(uid1, uid2);
-            continue;
+            break;
         }
         if (q4.length > 0){
             uid1 = q1.shift();
             uid2 = q4.shift();
             createChatRoom(uid1, uid2);
-            continue;
+            break;
         }
         if (q5.length > 0){
             uid1 = q1.shift();
             uid2 = q5.shift();
             createChatRoom(uid1, uid2);
-            continue;
+            break;
         }
+    }
+    if(q2.length > 0){
+        if (q2.length > 1){
+            uid1 = q2.shift();
+            uid2 = q2.shift();
+            createChatRoom(uid1, uid2);
+            break;
+        }
+        if (q3.length > 0){
+            uid1 = q2.shift();
+            uid2 = q3.shift();
+            createChatRoom(uid1, uid2);
+            break;
+        }
+        if (q4.length > 0){
+            uid1 = q2.shift();
+            uid2 = q4.shift();
+            createChatRoom(uid1, uid2);
+            break;
+        }
+        if (q5.length > 0){
+            uid1 = q2.shift();
+            uid2 = q5.shift();
+            createChatRoom(uid1, uid2);
+            break;
+        }
+    }
+    if(q4.length > 0){
+        if (q4.length > 1){
+            uid1 = q4.shift();
+            uid2 = q4.shift();
+            createChatRoom(uid1, uid2);
+            break;
+        }
+        if (q3.length > 0){
+            uid1 = q4.shift();
+            uid2 = q3.shift();
+            createChatRoom(uid1, uid2);
+            break;
+        }
+        if (q5.length > 0){
+            uid1 = q4.shift();
+            uid2 = q5.shift();
+            createChatRoom(uid1, uid2);
+            break;
+        }
+    }
+    if(q5.length > 0){
+        if (q5.length > 1){
+            uid1 = q5.shift();
+            uid2 = q5.shift();
+            createChatRoom(uid1, uid2);
+            break;
+        }
+        if (q3.length > 0){
+            uid1 = q5.shift();
+            uid2 = q3.shift();
+            createChatRoom(uid1, uid2);
+            break;
+        }
+    }
+    if (q3.length > 1){
+        uid1 = q3.shift();
+        uid2 = q3.shift();
+        createChatRoom(uid1, uid2);
         break;
     }
 }
