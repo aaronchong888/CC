@@ -252,3 +252,36 @@ label {
 .register-container {
 
 }
+
+.bkground{
+  background-image: url(../resources/img/background-01.jpg);
+  background-size: contain;
+
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+/*.menuBar{
+  background-color: rgb(2,101,102);
+  width: 100vw;
+  height: 20vh;
+}*/
+
+.person{
+  width: 100vw;
+  height: 100vh;
+}
+
+/*.logo {
+  background-image: url(../resources/img/logo_001.jpg);
+  background-size: contain;
+
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}*/
+/*
+.line {
+  background-color: rgb(25,187,183);
+}*/

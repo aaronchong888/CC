@@ -21,19 +21,17 @@ var Menu = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div className = "bkground">
           <div className="menuBar">
-            <div className="col-xs-2">
+            <div className="col-xs-2 person">
               <i className="fa fa-user" aria-hidden="true"></i>
             </div>
-            <div className="col-xs-8">
-              logo
-            </div>
-            <div className="col-xs-2">
-              <i className="fa fa-cog" aria-hidden="true"></i>
+
+            <div className="col-xs-offset-8 col-xs-2 setting">
+
             </div>
           </div>
-          <div className="line">
+          <div className="line col-xs-12">
           </div>
           <div className="col-xs-offset-3 col-xs-6">
           Start matching
