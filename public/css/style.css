@@ -19,6 +19,9 @@ body *::selection {
     margin-bottom: 5px;
 }
 
+
+
+
 body {
     margin-left: 20vw;
     margin-top: 20px;
@@ -46,6 +49,36 @@ header a {
 
 header a:hover {
     text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+#header{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111111;
 }
 
 @media (max-width: 400px) {
@@ -215,4 +248,3 @@ label {
     -ms-user-select: none;
     user-select: none;
 }
-
