@@ -2,7 +2,9 @@ DROP DATABASE IF EXISTS ccdb;
 CREATE DATABASE ccdb;
 \connect ccdb;
 
-DROP TABLE IF EXISTS chat_room;
+DROP TABLE IF EXISTS message;
+DROP TABLE IF EXISTS chatroom;
+DROP TABLE IF EXISTS userinfo;
 
 CREATE TABLE userinfo (
     user_id serial PRIMARY KEY,

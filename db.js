@@ -81,7 +81,7 @@ module.exports = {
         });
     },
     getChatRooms: function(callback) {
-        pgQuery('SELECT room_name FROM chat_room', function(err, result) {
+        pgQuery('SELECT * FROM chatroom', function(err, result) {
             if (err) {
                 callback(err);
             } else {
