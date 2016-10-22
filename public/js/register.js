@@ -42,7 +42,7 @@ var Register = React.createClass({
         type: 'GET',
         url: '/menu'
       });
-    });
+    }, 2000);
 
   },
   render: function () {
