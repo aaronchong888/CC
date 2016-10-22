@@ -38,10 +38,7 @@ var Register = React.createClass({
       data: userInfo,
     });
     setTimeout(function () {
-      $.ajax({
-        type: 'GET',
-        url: '/menu'
-      });
+      window.location.replace( window.location.origin + '/menu');
     }, 2000);
 
   },
