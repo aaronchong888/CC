@@ -1,4 +1,4 @@
-var Register = React.createclassName({
+var Register = React.createClass({
   getInitialState: function () {
     return ({
       title: 'Register',
