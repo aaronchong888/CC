@@ -115,10 +115,9 @@ function createChatRoom(uid1, uid2){
     var createChatRoomQueryString = 'INSERT INTO chatroom VALUES (DEFAULT, \'' + uid1 + '\', \'' + uid2 + '\')';
     pgQuery(createChatRoomQueryString, function(err) {
         if (err) {
-            callback(err);
+            console.log(err);
         } else {
             console.log('CREATED!');
-            callback(null);
         }
     });
 }
