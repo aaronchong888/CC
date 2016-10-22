@@ -1,3 +1,13 @@
+body {
+    margin-left: 20vw;
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: 'Open Sans', 'Roboto', 'Helvetica', sans-serif;
+    width: calc(80vw - 20px);
+    max-width: 760px;
+    color: #2C3E50;
+}
+
 body * {
     margin: 0;
     padding: 0;
@@ -12,15 +22,8 @@ body *::selection {
     margin-bottom: 5px;
 }
 
-body {
-    margin-left: 20vw;
-    margin-top: 20px;
-    font-size: 16px;
-    font-family: 'Open Sans', 'Roboto', 'Helvetica', sans-serif;
-    width: calc(80vw - 20px);
-    max-width: 760px;
-    color: #2C3E50;
-}
+
+
 
 .title {
     color: #3498DB;
