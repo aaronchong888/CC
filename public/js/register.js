@@ -18,7 +18,7 @@ var Register = React.createClass({
     // The DOM node for <input> chat message
     var nameDOMNode = this.refs.name.getDOMNode();
     var typeDOMNode = this.refs.type.getDOMNode();
-    var targetDOMNode = this.refs.type.getDOMNode();
+    var targetDOMNode = this.refs.target.getDOMNode();
     var countryDOMNode = this.refs.country.getDOMNode();
 
     var userInfo = {
