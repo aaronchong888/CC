@@ -17,14 +17,17 @@ var Register = React.createClass({
   handleNameChange: function(e) {
     var value = e.target.value;
     this.setState({name: value});
+    console.log(this.state.name);
   },
   handleTypeChange: function(e) {
     var value = e.target.value;
     this.setState({type: value});
+    console.log(this.state.type);    
   },
   handleCountryChange: function(e) {
     var value = e.target.value;
     this.setState({country: value});
+    console.log(this.state.country);    
   },
   render: function () {
     return (
@@ -40,7 +43,7 @@ var Register = React.createClass({
               <input
                 type="text"
                 class="form-control"
-                onChange={this.handleChange}
+                onChange={this.handleNameChange}
                 nameplaceholder="Your name"
                 value={this.state.name}
               />
