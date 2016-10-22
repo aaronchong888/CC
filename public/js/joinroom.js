@@ -125,11 +125,11 @@ var ChatRoomsList = React.createClass({
     }
 });
 
-class UserList extends React.Component {
-    render() {
+var UserList = React.createClass({
+    render: function() {
         {this.props.userList[0].name}
     }
-}
+});
 
 var ChatRoom = React.createClass({
     render: function () {
