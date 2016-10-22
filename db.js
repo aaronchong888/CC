@@ -48,7 +48,7 @@ module.exports = {
             if (err) {
                 callback(err);
             } else {
-                pgQuery('SELECT user_id FROM userinfo WHERE name=\'' + name + '\'', function(err, result) {
+                pgQuery('SELECT MAX(user_id) AS user_id FROM userinfo', function(err, result) {
                     if (err) {
                         callback(err);
                     } else {
