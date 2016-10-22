@@ -8,7 +8,7 @@ var url = require('url')
 
 const params = url.parse(pgURL);
 const auth = params.auth.split(':');
-const config = {
+const db_config = {
   user: auth[0],
   password: auth[1],
   host: params.hostname,
@@ -16,7 +16,7 @@ const config = {
   database: params.pathname.split('/')[1],
   ssl: true
 };
-var pool = new Pool(config);
+var pool = new Pool(db_config);
 
 var count = 0
 pool.on('connect', client => {
