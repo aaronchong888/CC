@@ -15,7 +15,6 @@ var Register = React.createClass({
     return (
       <div>
         <h1>{this.state.title}</h1>
-
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Dropdown
@@ -29,9 +28,7 @@ var Register = React.createClass({
             <li><a href="#">Separated link</a></li>
           </ul>
         </div>
-
       </div>
-
     );
   }
 });
