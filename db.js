@@ -111,13 +111,14 @@ module.exports = {
     }
 };
 
-function createChatRoom(uid1, uid2){
+function createChatRoom(uid1, uid2, callback){
     var createChatRoomQueryString = 'INSERT INTO chatroom VALUES (DEFAULT, \'' + uid1 + '\', \'' + uid2 + '\')';
     pgQuery(createChatRoomQueryString, function(err) {
         if (err) {
-            console.log(err);
+            callback(err);
         } else {
             console.log('CREATED!');
+            callback(null);
         }
     });
 }
@@ -134,99 +135,189 @@ function check_queue() {
         if (q1.length > 1){
             uid1 = q1.shift();
             uid2 = q1.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q2.length > 0){
             uid1 = q1.shift();
             uid2 = q2.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q3.length > 0){
             uid1 = q1.shift();
             uid2 = q3.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q4.length > 0){
             uid1 = q1.shift();
             uid2 = q4.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q5.length > 0){
             uid1 = q1.shift();
             uid2 = q5.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
     }
     if(q2.length > 0){
         if (q2.length > 1){
             uid1 = q2.shift();
             uid2 = q2.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q3.length > 0){
             uid1 = q2.shift();
             uid2 = q3.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q4.length > 0){
             uid1 = q2.shift();
             uid2 = q4.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q5.length > 0){
             uid1 = q2.shift();
             uid2 = q5.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
     }
     if(q4.length > 0){
         if (q4.length > 1){
             uid1 = q4.shift();
             uid2 = q4.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q3.length > 0){
             uid1 = q4.shift();
             uid2 = q3.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q5.length > 0){
             uid1 = q4.shift();
             uid2 = q5.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
     }
     if(q5.length > 0){
         if (q5.length > 1){
             uid1 = q5.shift();
             uid2 = q5.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
         if (q3.length > 0){
             uid1 = q5.shift();
             uid2 = q3.shift();
-            createChatRoom(uid1, uid2);
-            break;
+            createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+            return;
         }
     }
     if (q3.length > 1){
         uid1 = q3.shift();
         uid2 = q3.shift();
-        createChatRoom(uid1, uid2);
-        break;
+        createChatRoom(uid1, uid2, function(err, result) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(null);
+                }
+            });
+        return;
     }
 }
 
