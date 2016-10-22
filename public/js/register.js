@@ -30,7 +30,7 @@ var Register = React.createClass({
       flight: 'CX530'
     };
 
-    sessionStorage.setItem("userInfo", userInfo);
+    sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
 
     $.ajax({
       type: 'POST',
