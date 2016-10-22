@@ -1,7 +1,6 @@
 var loggedInAs;
 var socket = io();
 var createNewRoomMaxLength = '30';
-var React = require('react');
 
 function updateLogInInfo(username) {
     $('#errorMessage').hide(600);
