@@ -22,9 +22,9 @@ var Register = React.createClass({
         <div className="row">
           <div className="panel panel-default">
             <div className="panel-body">
-              <div class="dropdown">
-                <Autocomplete />
-              </div>
+              <input type="text" class="form-control" placeholder="Your name" />
+              <input type="text" class="form-control" placeholder="I'm a..." />
+              <input type="text" class="form-control" placeholder="Home country" />
             </div>
           </div>
         </div>
