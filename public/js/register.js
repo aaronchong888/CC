@@ -6,10 +6,25 @@ var Register = React.createClass({
       welcomeMessage: '',
       languages: ['en', 'zh'],
       types: ['business', 'travel', 'returnHome', 'transit', 'others'],
-      homeCountries: ['China', 'Taiwan', 'Japan', 'United States']
+      homeCountries: ['China', 'Taiwan', 'Japan', 'United States'],
+      name: '',
+      type: '',
+      country: ''
     });
   },
   componentDidMount: function () {
+  },
+  handleNameChange: function(e) {
+    var value = e.target.value;
+    this.setState({name: value});
+  },
+  handleTypeChange: function(e) {
+    var value = e.target.value;
+    this.setState({type: value});
+  },
+  handleCountryChange: function(e) {
+    var value = e.target.value;
+    this.setState({country: value});
   },
   render: function () {
     return (
@@ -22,9 +37,27 @@ var Register = React.createClass({
         <div className="row">
           <div className="panel panel-default">
             <div className="panel-body">
-              <input type="text" class="form-control" placeholder="Your name" />
-              <input type="text" class="form-control" placeholder="I'm a..." />
-              <input type="text" class="form-control" placeholder="Home country" />
+              <input
+                type="text"
+                class="form-control"
+                onChange={this.handleChange}
+                nameplaceholder="Your name"
+                value={this.state.name}
+              />
+              <input
+                type="text"
+                class="form-control"
+                onChange={this.handleTypeChange}
+                placeholder="I'm a..."
+                value={this.state.type}                
+              />
+              <input
+                type="text"
+                class="form-control"
+                onChange={this.handleCountryChange}
+                placeholder="Home country"
+                value={this.state.country}                
+              />
             </div>
           </div>
         </div>
