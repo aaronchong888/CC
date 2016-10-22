@@ -141,7 +141,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q2.length > 0){
@@ -154,7 +153,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q3.length > 0){
@@ -167,7 +165,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q4.length > 0){
@@ -180,7 +177,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q5.length > 0){
@@ -193,7 +189,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
     }
@@ -208,7 +203,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q3.length > 0){
@@ -221,7 +215,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q4.length > 0){
@@ -234,7 +227,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q5.length > 0){
@@ -247,7 +239,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
     }
@@ -262,7 +253,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q3.length > 0){
@@ -275,7 +265,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q5.length > 0){
@@ -288,7 +277,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
     }
@@ -303,7 +291,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
         if (q3.length > 0){
@@ -316,7 +303,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-            createChatRoom(uid1, uid2);
             return;
         }
     }
@@ -330,7 +316,6 @@ function check_queue() {
                     console.log(result);
                 }
             });
-        createChatRoom(uid1, uid2);
         return;
     }
 }
