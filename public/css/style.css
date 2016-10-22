@@ -242,10 +242,6 @@ label {
     user-select: none;
 }
 
-.register-container {
-
-}
-
 .bkground{
   background-image: url(../resources/img/background-01.jpg);
   background-size: contain;
