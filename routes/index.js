@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db.js');
-window.Autocomplete = require('react-Autocomplete');
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index');
