@@ -1,5 +1,8 @@
 body {
     background: url('../resources/background/cover_01a.jpg') no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 body * {
