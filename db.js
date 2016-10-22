@@ -137,9 +137,9 @@ function check_queue() {
             uid2 = q1.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err);
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -150,9 +150,9 @@ function check_queue() {
             uid2 = q2.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -163,9 +163,9 @@ function check_queue() {
             uid2 = q3.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -176,9 +176,9 @@ function check_queue() {
             uid2 = q4.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -189,9 +189,9 @@ function check_queue() {
             uid2 = q5.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -204,9 +204,9 @@ function check_queue() {
             uid2 = q2.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -217,9 +217,9 @@ function check_queue() {
             uid2 = q3.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -230,9 +230,9 @@ function check_queue() {
             uid2 = q4.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -243,9 +243,9 @@ function check_queue() {
             uid2 = q5.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -258,9 +258,9 @@ function check_queue() {
             uid2 = q4.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -271,9 +271,9 @@ function check_queue() {
             uid2 = q3.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -284,9 +284,9 @@ function check_queue() {
             uid2 = q5.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err)
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -299,9 +299,9 @@ function check_queue() {
             uid2 = q5.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err);
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -312,9 +312,9 @@ function check_queue() {
             uid2 = q3.shift();
             createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err);
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
             createChatRoom(uid1, uid2);
@@ -326,9 +326,9 @@ function check_queue() {
         uid2 = q3.shift();
         createChatRoom(uid1, uid2, function(err, result) {
                 if (err) {
-                    callback(err);
+                    console.log(err);
                 } else {
-                    callback(null);
+                    console.log(result);
                 }
             });
         createChatRoom(uid1, uid2);
