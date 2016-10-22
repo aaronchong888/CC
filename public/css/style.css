@@ -233,9 +233,6 @@ label {
 }
 
 .bkground {
-  background-image: url(../resources/img/background-01.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
   display: flex;

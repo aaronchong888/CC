@@ -8,7 +8,7 @@ var Menu = React.createClass({
   render: function () {
     return (
       <div className="bkground">
-        <div className="col menuBar">
+        <div className="row menuBar">
           <div className="col-xs-2">
             <i className="fa fa-user" aria-hidden="true"></i>
           </div>
@@ -17,15 +17,13 @@ var Menu = React.createClass({
           </div>
         </div>
 
-        <div className="col-xs-offset-2 col-xs-6 match">
 
-        </div>
-        <div className="row col-xs-12">
+        
+        <div className="row">
           <div className="col-xs-2 fd">
           </div>
-          <div className="col-xs-offset-8 col-xs-2 mic">
-
-          </div>
+          <div className="col-xs-offset-2 col-xs-6 match" />
+          <div className="col-xs-offset-8 col-xs-2 mic" />
         </div>
 
       </div>
