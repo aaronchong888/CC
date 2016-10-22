@@ -69,6 +69,8 @@ module.exports = {
                             default:
                                 q5.push(result.rows[0].user_id);
                         }
+                        console.log('PUSHING TO A USER TO QUEUE');
+                        console.log(q5);
                         callback(result.rows[0].user_id);
                     }
                 });
