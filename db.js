@@ -86,7 +86,7 @@ module.exports = {
     },
     getMessage: function(rm_id, limit, callback) {
         // No need for time zone conversion!
-        var getMessageQueryString = 'SELECT user_id, msg_type, msg_content, to_char(time, \'HH24:MI\') as time FROM message JOIN chatroom ON chatroom.rm_id=message.rm_id WHERE chatroom.rm_id=\'' + rm_id + '\'' + ' LIMIT ' + limit;
+        var getMessageQueryString = 'SELECT name, msg_type, msg_content, to_char(time, \'HH24:MI\') as time FROM userinfo, message WHERE userinfo.userid=message.userid and message.rm_id=\'' + rm_id + '\'' + ' LIMIT ' + limit;
 
         pgQuery(getMessageQueryString, function(err, result) {
             if (err) {
