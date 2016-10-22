@@ -48,7 +48,7 @@ module.exports = {
             if (err) {
                 callback(err);
             } else {
-                cpgQuery('SELECT user_id FROM userinfo WHERE name=\'' + name + '\'', function(err, result) {
+                pgQuery('SELECT user_id FROM userinfo WHERE name=\'' + name + '\'', function(err, result) {
                     if (err) {
                         callback(err);
                     } else {
