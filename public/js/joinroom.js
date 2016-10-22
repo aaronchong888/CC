@@ -10,12 +10,12 @@ function updateLogInInfo(username) {
 
 $.ajax({
     url: '/login',
-    success: function(username) {
+    success: function (username) {
         loggedInAs = username;
     }
 });
 
-$('form').submit(function(e) {
+$('form').submit(function (e) {
     e.preventDefault();
     var val = $('#username').val();
     console.log(val);
@@ -29,7 +29,7 @@ $('form').submit(function(e) {
         type: 'POST',
         url: '/login',
         data: data,
-        success: function() {
+        success: function () {
             updateLogInInfo(data.username);
             $('#username').val('');
             $('#username').blur();
@@ -38,68 +38,83 @@ $('form').submit(function(e) {
 });
 
 var App = React.createClass({
-    getInitialState: function() {
+    getInitialState: function () {
         socket.on('user connected', this.handleConnection);
         socket.on('user disconnected', this.handleConnection);
-        return {rooms: [], peopleOnline: 0};
+        return (
+            {
+                rooms: [],
+                peopleOnline: 0,
+                userList: [{
+                    "id": "0",
+                    "name": "Siuming Wong",
+                    "flight": "CX507",
+                    "type": "business",
+                    "target": "traveler",
+                    "homeCountry": "HK",
+                    "language": ["zh", "en"]
+                }]
+            }
+        );
     },
-    handleConnection: function(peopleOnline) {
+    handleConnection: function (peopleOnline) {
         console.log('Hello from React, ' + peopleOnline + ' people are online!');
-        this.setState({peopleOnline: peopleOnline});
+        this.setState({ peopleOnline: peopleOnline });
     },
-    componentDidMount: function() {
+    componentDidMount: function () {
         $.ajax({
             url: '/chatrooms',
             dataType: 'json',
-            success: function(data) {
-                this.setState({rooms: data});
+            success: function (data) {
+                this.setState({ rooms: data });
             }.bind(this)
         });
     },
-    onChatRoomSubmit: function(roomName) {
+    onChatRoomSubmit: function (roomName) {
         var rooms = this.state.rooms;
-        var newRooms = rooms.concat({room_name: roomName});
+        var newRooms = rooms.concat({ room_name: roomName });
         $.ajax({
             type: 'POST',
             url: '/chatrooms/insert',
             data: {
                 roomName: roomName
             },
-            success: function() {
+            success: function () {
                 console.log('Successfully added new room. Now room list is');
                 console.log(newRooms);
-                this.setState({rooms: newRooms});
+                this.setState({ rooms: newRooms });
             }.bind(this)
         });
     },
-    render: function() {
+    render: function () {
         // Removing for now, too much clutter
         // <NewChatRoomForm onChatRoomSubmit={this.onChatRoomSubmit} />
-        return(
+        return (
             <div className="chatRoomListApp">
-            <PeopleOnline peopleOnline={this.state.peopleOnline} />
-            <h3 id='joinAChatRoom'>Join a chat room</h3>
-            <ChatRoomsList rooms={this.state.rooms} />
+                <PeopleOnline peopleOnline={this.state.peopleOnline} />
+                <h3 id='joinAChatRoom'>Join a chat room</h3>
+                <ChatRoomsList rooms={this.state.rooms} />
+                <UserList users={this.state.users} />
             </div>
         );
     }
 });
 
 var PeopleOnline = React.createClass({
-    render: function() {
+    render: function () {
         return (
             <p className='peopleOnline'>
-            People online right now: <span id='peopleOnlineCount'>{this.props.peopleOnline}</span>
+                People online right now: <span id='peopleOnlineCount'>{this.props.peopleOnline}</span>
             </p>
         )
     }
 });
 
 var ChatRoomsList = React.createClass({
-    render: function() {
-        var roomNodes = this.props.rooms.map(function(room) {
+    render: function () {
+        var roomNodes = this.props.rooms.map(function (room) {
             return (
-                <ChatRoom roomName={room.room_name}/>
+                <ChatRoom roomName={room.room_name} />
             );
         });
         return (
@@ -110,19 +125,25 @@ var ChatRoomsList = React.createClass({
     }
 });
 
+class UserList extends Component {
+    render() {
+        {this.props.userList[0].name}
+    }
+}
+
 var ChatRoom = React.createClass({
-    render: function() {
+    render: function () {
         var roomName = this.props.roomName;
         return (
-                <li className='room'>
+            <li className='room'>
                 <a href={'r/' + roomName}>{roomName}</a>
-                </li>
+            </li>
         );
     }
 });
 
 var NewChatRoomForm = React.createClass({
-    handleSubmit: function(e) {
+    handleSubmit: function (e) {
         e.preventDefault();
         var roomName = this.refs.roomName.getDOMNode().value.trim();
         if (!roomName) {
@@ -131,7 +152,7 @@ var NewChatRoomForm = React.createClass({
         this.props.onChatRoomSubmit(roomName);
         this.refs.roomName.getDOMNode().value = '';
     },
-    render: function() {
+    render: function () {
         return (
             <form className='newChatRoomForm' onSubmit={this.handleSubmit}>
                 <input className='input_field short_input_field' type='text' placeholder='Create new room...' maxLength={createNewRoomMaxLength} ref='roomName' />
