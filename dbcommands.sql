@@ -17,7 +17,9 @@ CREATE TABLE userinfo (
 );
 
 CREATE TABLE chatroom (
-    rm_id serial PRIMARY KEY
+    rm_id serial PRIMARY KEY,
+    user_id1 integer REFERENCES userinfo(user_id),
+    user_id2 integer REFERENCES userinfo(user_id)
 );
 
 CREATE TABLE message (

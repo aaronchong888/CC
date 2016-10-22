@@ -77,19 +77,13 @@ module.exports = {
             }
         });
     },
-    createChatRoom: function(callback) {
-        var createChatRoomQueryString = 'INSERT INTO chatroom VALUES (DEFAULT)';
-        pgQuery(createChatRoomQueryString, function(err) {
+    getChatRoom: function(user_id, callback) {
+        var getChatRoomQueryString = 'SELECT rm_id FROM chatroom WHERE user_id1 =\'' + user_id + '\'' +'or user_id2 =\'' + user_id + '\'';
+        pgQuery(getChatRoomQueryString, function(err, result) {
             if (err) {
                 callback(err);
             } else {
-                pgQuery('SELECT MAX(rm_id) AS rm_id FROM chatroom', function(err, result) {
-                    if (err) {
-                        callback(err);
-                    } else {
-                        callback(result.rows[0].rm_id);
-                    }
-                });
+                callback(result.rows[0].rm_id);
             }
         });
     },
@@ -111,12 +105,25 @@ module.exports = {
             if (err) {
                 callback(err);
             } else {
-                callback(null, result.rows);
+                callback(result.rows);
             }
         });
     }
 };
 
+function createChatRoom(uid1, uid2){
+    var createChatRoomQueryString = 'INSERT INTO chatroom VALUES (DEFAULT, \'' + uid1 + '\', \'' + uid2 + '\')';
+    pgQuery(createChatRoomQueryString, function(err) {
+        if (err) {
+            callback(err);
+        } else {
+            console.log('CREATED!');
+            callback(null);
+        }
+    });
+}
+
+var uid1, uid2;
 function check_queue() {
     console.log('>>>>>>>>>>>>>QUEUE CHECKING');
     console.log('Q1 waiting: ' + q1.length);
@@ -124,6 +131,39 @@ function check_queue() {
     console.log('Q3 waiting: ' + q3.length);
     console.log('Q4 waiting: ' + q4.length);
     console.log('Q5 waiting: ' + q5.length);
+    while (q1.length > 0){
+        if (q1.length > 1){
+            uid1 = q1.shift();
+            uid2 = q1.shift();
+            createChatRoom(uid1, uid2);
+            continue;
+        }
+        if (q2.length > 0){
+            uid1 = q1.shift();
+            uid2 = q2.shift();
+            createChatRoom(uid1, uid2);
+            continue;
+        }
+        if (q3.length > 0){
+            uid1 = q1.shift();
+            uid2 = q3.shift();
+            createChatRoom(uid1, uid2);
+            continue;
+        }
+        if (q4.length > 0){
+            uid1 = q1.shift();
+            uid2 = q4.shift();
+            createChatRoom(uid1, uid2);
+            continue;
+        }
+        if (q5.length > 0){
+            uid1 = q1.shift();
+            uid2 = q5.shift();
+            createChatRoom(uid1, uid2);
+            continue;
+        }
+        break;
+    }
 }
 
-setInterval(check_queue,5000);
+setInterval(check_queue,1000);
