@@ -10,7 +10,7 @@ var Header = React.createClass({
   },
   render: function () {
     return (
-      <nav class="navbar navbar-inverse" />
+      <nav className="navbar navbar-inverse" />
     );
   }
 });
