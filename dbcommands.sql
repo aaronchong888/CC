@@ -20,8 +20,8 @@ CREATE TABLE chatroom (
 
 CREATE TABLE message (
     msg_id serial PRIMARY KEY,
-    rm_id BIGINT UNSIGNED REFERENCES chatroom(rm_id),
-    user_id BIGINT UNSIGNED REFERENCES userinfo(user_id),
+    rm_id integer REFERENCES chatroom(rm_id),
+    user_id integer REFERENCES userinfo(user_id),
     msg_type TEXT,
     msg_content TEXT,
     time TIMESTAMPTZ
