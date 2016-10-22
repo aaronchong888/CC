@@ -129,7 +129,9 @@ var UserList = React.createClass({
     render: function() {
         var name = this.props.users[0].name;
         return (
-            {name}
+            <div>
+                {name}
+            </div>
         );
     }
 });
