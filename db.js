@@ -41,6 +41,7 @@ function pgQuery(queryString, callback) {
     });
 }
 
+var q1 = [], q2 = [], q3 = [], q4  = [], q5 = [];
 module.exports = {
     insertUser: function(name, flight, type, target, country, language, callback) {
         var insertUserQueryString = 'INSERT INTO userinfo VALUES (DEFAULT, \'' + name + '\',\'' + flight + '\',\'' + type + '\',\'' + target + '\',\'' + country + '\',\'' + language+ '\')';
@@ -48,10 +49,26 @@ module.exports = {
             if (err) {
                 callback(err);
             } else {
-                pgQuery('SELECT MAX(user_id) AS user_id FROM userinfo', function(err, result) {
+                pgQuery('SELECT user_id, type FROM userinfo WHERE user_id = (SELECT MAX(user_id) FROM userinfo)', function(err, result) {
                     if (err) {
                         callback(err);
                     } else {
+                        switch(result.rows[0].type) {
+                            case "business":
+                                q1.push(result.rows[0].user_id);
+                                break;
+                            case "traveler":
+                                q2.push(result.rows[0].user_id);
+                                break;
+                            case "homereturn":
+                                q3.push(result.rows[0].user_id);
+                                break;
+                            case "transit":
+                                q4.push(result.rows[0].user_id);
+                                break;
+                            default:
+                                q5.push(result.rows[0].user_id);
+                        }
                         callback(result.rows[0].user_id);
                     }
                 });
@@ -97,3 +114,5 @@ module.exports = {
         });
     }
 };
+
+console.log(q5);
