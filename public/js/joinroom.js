@@ -45,7 +45,7 @@ var App = React.createClass({
             {
                 rooms: [],
                 peopleOnline: 0,
-                userList: [{
+                users: [{
                     "id": "0",
                     "name": "Siuming Wong",
                     "flight": "CX507",
