@@ -22,12 +22,12 @@ var Register = React.createClass({
         <div className="row">
           <div className="panel panel-default">
             <div className="panel-body">
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              <div className="dropdown">
+                <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                   Dropdown Example
-                  <span class="caret"></span>
+                  <span className="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu">
                   <li><a href="#">HTML</a></li>
                   <li><a href="#">CSS</a></li>
                   <li><a href="#">JavaScript</a></li>
