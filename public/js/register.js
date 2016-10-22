@@ -1,4 +1,4 @@
-var Register = React.createClass({
+var Register = React.createclassName({
   getInitialState: function () {
     return ({
       title: 'Register',
@@ -9,22 +9,21 @@ var Register = React.createClass({
     });
   },
   componentDidMount: function () {
-
   },
   render: function () {
     return (
       <div>
         <h1>{this.state.title}</h1>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <div classNameName="dropdown">
+          <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Dropdown
-        <span class="caret"></span>
+        <span className="caret"></span>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
+            <li role="separator" className="divider"></li>
             <li><a href="#">Separated link</a></li>
           </ul>
         </div>
