@@ -44,7 +44,7 @@ var Register = React.createClass({
                 type="text"
                 class="form-control"
                 onChange={this.handleNameChange}
-                nameplaceholder="Your name"
+                placeholder="Your name"
                 value={this.state.name}
               />
               <input
