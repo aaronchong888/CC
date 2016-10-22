@@ -42,8 +42,40 @@ function pgQuery(queryString, callback) {
 }
 
 module.exports = {
-    insertMessage: function(chatRoom, username, message, unix_time, callback) {
-        var insertMessageQueryString = 'INSERT INTO message VALUES (DEFAULT, \'' + chatRoom + '\',\'' + username + '\',\'' + message + '\', to_timestamp(' + unix_time + '))';
+    insertUser: function(name, flight, type, target, country, language, callback) {
+        var insertUserQueryString = 'INSERT INTO userinfo VALUES (DEFAULT, \'' + name + '\',\'' + flight + '\',\'' + type + '\',\'' + target + '\',\'' + country + '\',\'' + language+ '\')';
+        pgQuery(insertUserQueryString, function(err) {
+            if (err) {
+                callback(err);
+            } else {
+                pgQuery('SELECT MAX(user_id) AS user_id FROM userinfo', function(err, result) {
+                    if (err) {
+                        callback(err);
+                    } else {
+                        callback(result.rows[0].user_id);
+                    }
+                });
+            }
+        });
+    },
+    createChatRoom: function(callback) {
+        var createChatRoomQueryString = 'INSERT INTO chatroom VALUES (DEFAULT)';
+        pgQuery(createChatRoomQueryString, function(err) {
+            if (err) {
+                callback(err);
+            } else {
+                pgQuery('SELECT MAX(rm_id) AS rm_id FROM chatroom', function(err, result) {
+                    if (err) {
+                        callback(err);
+                    } else {
+                        callback(result.rows[0].rm_id);
+                    }
+                });
+            }
+        });
+    },
+    insertMessage: function(rm_id, user_id, msg_type, msg_content, unix_time, callback) {
+        var insertMessageQueryString = 'INSERT INTO message VALUES (DEFAULT, \'' + rm_id + '\',\'' + user_id + '\',\'' + msg_type + '\',\'' + msg_content + '\', to_timestamp(' + unix_time + '))';
         pgQuery(insertMessageQueryString, function(err) {
             if (err) {
                 callback(err);
@@ -52,30 +84,11 @@ module.exports = {
             }
         });
     },
-    insertChatRoom: function(chatRoomName, callback) {
-        var insertChatRoomQueryString = 'INSERT INTO chatroom VALUES (DEFAULT)';
-        pgQuery(insertChatRoomQueryString, function(err) {
-            if (err) {
-                callback(err);
-            } else {
-                callback(null);
-            }
-        });
-    },
-    getMessages: function(chatRoom, limit, callback) {
+    getMessage: function(rm_id, limit, callback) {
         // No need for time zone conversion!
-        var getMessagesQueryString = 'SELECT username, msg, to_char(time, \'HH24:MI\') as time FROM message JOIN chat_room ON chat_room.room_name=message.room_name WHERE chat_room.room_name=\'' + chatRoom + '\'' + ' LIMIT ' + limit;
+        var getMessageQueryString = 'SELECT name, msg_type, msg_content, to_char(time, \'HH24:MI\') as time FROM userinfo, message WHERE userinfo.userid=message.userid and message.rm_id=\'' + rm_id + '\'' + ' LIMIT ' + limit;
 
-        pgQuery(getMessagesQueryString, function(err, result) {
-            if (err) {
-                callback(err);
-            } else {
-                callback(null, result.rows);
-            }
-        });
-    },
-    getChatRooms: function(callback) {
-        pgQuery('SELECT * FROM chatroom', function(err, result) {
+        pgQuery(getMessageQueryString, function(err, result) {
             if (err) {
                 callback(err);
             } else {

@@ -248,3 +248,9 @@ label {
     -ms-user-select: none;
     user-select: none;
 }
+
+.register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
