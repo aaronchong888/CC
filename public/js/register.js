@@ -51,34 +51,40 @@ var Register = React.createClass({
           </div>
         </div>
         <div className="row">
-          <div className="panel panel-default">
-            <div className="panel-body">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Your name"
-                ref="name"
-                />
-              <input
-                type="text"
-                class="form-control"
-                placeholder="I'm a..."
-                ref="type"
-                />
-              <input
-                type="text"
-                class="form-control"
-                placeholder="I want to find a..."
-                ref="target"
-                />
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Home country"
-                ref="country"
-                />
+          <div className="col-md-12 col-xs-12">
+            <div className="panel panel-default">
+              <div className="panel-body">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Your name"
+                  ref="name"
+                  />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="I'm a..."
+                  ref="type"
+                  />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="I want to find a..."
+                  ref="target"
+                  />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Home country"
+                  ref="country"
+                  />
+              </div>
             </div>
           </div>
+        </div>
+
+        <div className="row">
+          <button className="btn" onClick={this.handleSubmit}>Submit</button>
         </div>
       </div>
     );
