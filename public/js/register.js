@@ -12,15 +12,11 @@ var Register = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div className="register-container">
         <h1>{this.state.title}</h1>
-        <div className="container">
-          <h2>Basic Panel</h2>
-          <div className="panel panel-default">
-            <div className="panel-body">A Basic Panel</div>
-          </div>
+        <div className="panel panel-default">
+          <div className="panel-body">A Basic Panel</div>
         </div>
-
       </div>
     );
   }
