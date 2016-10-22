@@ -14,38 +14,32 @@ const db_config = {
   host: params.hostname,
   port: params.port,
   database: params.pathname.split('/')[1],
-  ssl: true
+  ssl: true,
+  max: 200, // max number of clients in the pool
+  idleTimeoutMillis: 30000 // how long a client is allowed to remain idle before being closed
 };
 var pool = new Pool(db_config);
 
-var count = 0
-pool.on('connect', client => {
-  client.count = count++;
+pool.on('error', function (err, client) {
+  console.error('idle client error', err.message, err.stack)
 });
 
-pool.connect().then(client => {
-    return client.query('SELECT $1::int AS "clientCount"', [client.count])
-      .then(res => console.log(res.rows[0].clientCount)) // outputs 0
-      .then(() => client)
-}).then(client => client.release());
-
-/*
 function pgQuery(queryString, callback) {
-    pg.connect(pgURL, function(err, client, done) {
-        if (err) {
-            callback(err);
+    pool.connect(function(err, client, done){
+        if(err) {
+            return console.error('error fetching client from pool', err);
         }
+
         client.query(queryString, function(err, result) {
             if (err) {
                 return console.error('Error running query ', err);
             }
             callback(null, result);
-            client.end();
+            //call `done()` to release the client back to the pool
+            done();
         });
-                
     });
 }
-*/
 
 module.exports = {
     insertMessage: function(chatRoom, username, message, unix_time, callback) {
