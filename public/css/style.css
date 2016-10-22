@@ -272,10 +272,19 @@ label {
   background-color: rgb(25,187,183);
 }*/
 
+.register-title {
+    padding: 15px;
+}
+
 .register-container {
     text-align: center;
+    height: 100vh;
     background: url('../resources/background/cover_01a.jpg') no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+}
+
+.register-panel {
+    margin: 15px;
 }

@@ -47,12 +47,12 @@ var Register = React.createClass({
       <div className="register-container">
         <div className="row">
           <div className="col-md-12 col-xs-12">
-            <h1>{this.state.title}</h1>
+            <h1 className="register-title">{this.state.title}</h1>
           </div>
         </div>
         <div className="row">
           <div className="col-md-12 col-xs-12">
-            <div className="panel panel-default">
+            <div className="panel panel-default register-panel">
               <div className="panel-body">
                 <input
                   type="text"
