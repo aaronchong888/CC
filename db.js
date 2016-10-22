@@ -118,7 +118,6 @@ function createChatRoom(uid1, uid2, callback){
             callback(err);
         } else {
             console.log('CREATED!');
-            callback(null);
         }
     });
 }
