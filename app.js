@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var session = require('express-session');
-var Autocomplete = require('react-autocomplete');
 
 // Routers
 var indexRouter = require('./routes/index.js');
