@@ -108,7 +108,7 @@ var Register = React.createClass({
         <div className="row">
           <div className="panel panel-default">
             <div className="panel-body">
-              <Autocomplete
+              <window.Autocomplete
                 value={this.state.value}
                 inputProps={{ name: "US state", id: "states-autocomplete" }}
                 items={getStates()}
