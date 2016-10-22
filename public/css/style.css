@@ -1,3 +1,7 @@
+body {
+    background: url('../resources/background/cover_01a.jpg') no-repeat;
+}
+
 body * {
     margin: 0;
     padding: 0;
