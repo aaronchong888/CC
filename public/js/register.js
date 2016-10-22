@@ -38,7 +38,9 @@ var Register = React.createClass({
       data: userInfo,
       success: function() {
         console.log('Successfully insert new user.');
-        $.get('/menu');
+        $.get('/menu', function (data){
+          console.log(data);
+        });
       },
       error: function() {
         console.error('Insert error');
