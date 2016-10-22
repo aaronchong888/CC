@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    header
+        h1
+            a(href='/about')= title
+        p#loginMessage= loginMessage 
+    form(id='loginForm' autocomplete='off')
+        if errorMessage
+            p#errorMessage= errorMessage
+        span.input
+            input.input_field.short_input_field(type='text', id='username', placeholder=usernameInputPlaceholder)
+    div#chatRoomList
+    script(type='text/jsx' src='/js/joinroom.js')
