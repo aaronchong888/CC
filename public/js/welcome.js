@@ -15,6 +15,7 @@ var Home = React.createClass({
         type: 'student',
         target: 'business',
         country: 'HK',
+        language: 'en'
       },
       success: function () {
         console.log('Successfully insert new user.');
