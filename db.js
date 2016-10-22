@@ -53,7 +53,7 @@ module.exports = {
         });
     },
     insertChatRoom: function(chatRoomName, callback) {
-        var insertChatRoomQueryString = 'INSERT INTO chat_room VALUES (\'' + chatRoomName + '\')';
+        var insertChatRoomQueryString = 'INSERT INTO chatroom VALUES (DEFAULT)';
         pgQuery(insertChatRoomQueryString, function(err) {
             if (err) {
                 callback(err);
