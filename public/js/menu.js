@@ -32,13 +32,13 @@ var Menu = React.createClass({
             </div>
           </div>
 
-          <div className="col-xs-offset-3 col-xs-6 match">
+          <div className="col-xs-offset-2 col-xs-6 match">
 
           </div>
           <div className="row col-xs-12">
-            <div className="col-xs-3 fd">
+            <div className="col-xs-2 fd">
             </div>
-            <div className="col-xs-offset-6 col-xs-3 mic">
+            <div className="col-xs-offset-8 col-xs-2 mic">
 
             </div>
           </div>
