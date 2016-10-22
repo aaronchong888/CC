@@ -6,20 +6,20 @@ var Home = React.createClass({
     });
   },
   componentDidMount: function () {
-    $.ajax({
-      type: 'POST',
-      url: '/insertUser',
-      data: {
-        name: 'Hugo',
-        flight: 'CX578',
-        type: 'student',
-        target: 'business',
-        country: 'HK',
-      },
-      success: function () {
-        console.log('Successfully insert new user.');
-      }
-    });
+    // $.ajax({
+    //   type: 'POST',
+    //   url: '/insertUser',
+    //   data: {
+    //     name: 'Hugo',
+    //     flight: 'CX578',
+    //     type: 'student',
+    //     target: 'business',
+    //     country: 'HK',
+    //   },
+    //   success: function () {
+    //     console.log('Successfully insert new user.');
+    //   }
+    // });
   },
   render: function () {
     return (

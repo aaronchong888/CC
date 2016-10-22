@@ -68,7 +68,7 @@ module.exports = {
                     if (err) {
                         callback(err);
                     } else {
-                        callback(null, result.rows[0].rm_id);
+                        callback(result.rows[0].rm_id);
                     }
                 });
             }
