@@ -84,7 +84,7 @@ var Register = React.createClass({
         </div>
 
         <div className="row">
-          <button className="btn" onClick={this.handleSubmit}>Submit</button>
+          <button className="btn-lg" onClick={this.handleSubmit}>Submit</button>
         </div>
       </div>
     );
