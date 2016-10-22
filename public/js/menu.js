@@ -31,13 +31,16 @@ var Menu = React.createClass({
 
             </div>
           </div>
-          <div className="line col-xs-12">
+
+          <div className="col-xs-offset-3 col-xs-6 match">
+
           </div>
-          <div className="col-xs-offset-3 col-xs-6">
-          Start matching
-          </div>
-          <div className="col-xs-offset-9 col-xs-3">
-            mic
+          <div className="row col-xs-12">
+            <div className="col-xs-3 fd">
+            </div>
+            <div className="col-xs-offset-6 col-xs-3 mic">
+
+            </div>
           </div>
 
       </div>
