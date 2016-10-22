@@ -6,9 +6,19 @@ var Home = React.createClass({
     });
   },
   componentDidMount: function () {
-    console.log('trying to insert user');
-    db.insertUser('Hugo', 'CX758', 'student', 'business', 'HK', 'en', function(err) {
-      console.log(err);
+    $.ajax({
+      type: 'POST',
+      url: '/insertUser',
+      data: {
+        name: 'Hugo',
+        flight: 'CX578',
+        type: 'student',
+        target: 'business',
+        country: 'HK',
+      },
+      success: function () {
+        console.log('Successfully insert new user.');
+      }
     });
   },
   render: function () {
