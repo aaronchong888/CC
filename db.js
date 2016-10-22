@@ -116,5 +116,3 @@ module.exports = {
         });
     }
 };
-
-console.log(q5);
