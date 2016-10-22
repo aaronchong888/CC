@@ -3,11 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var renderData = {
-        title: 'CC',
-        welcomeMessage: 'Welcome to CC, enjoy speedy matching!'
-    }
-    res.render('index', renderData);
+    res.render('index');
 });
 
 router.get('/chatroom', function(req, res, next) {
