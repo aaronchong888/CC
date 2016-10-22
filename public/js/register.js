@@ -14,20 +14,33 @@ var Register = React.createClass({
   },
   componentDidMount: function () {
   },
-  handleNameChange: function(e) {
-    var value = e.target.value;
-    this.setState({name: value});
-    console.log(this.state.name);
-  },
-  handleTypeChange: function(e) {
-    var value = e.target.value;
-    this.setState({type: value});
-    console.log(this.state.type);    
-  },
-  handleCountryChange: function(e) {
-    var value = e.target.value;
-    this.setState({country: value});
-    console.log(this.state.country);    
+  handleSubmit: function () {
+    // The DOM node for <input> chat message
+    var nameDOMNode = this.refs.name.getDOMNode();
+    var typeDOMNode = this.refs.type.getDOMNode();
+    var targetDOMNode = this.refs.type.getDOMNode();
+    var countryDOMNode = this.refs.country.getDOMNode();
+
+    var userInfo = {
+      name: nameDOMNode.value,
+      type: typeDOMNode.value,
+      target: targetDOMNode.value,
+      country: countryDOMNode.value,
+      language: 'en',
+      flight: 'CX530'
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: '/insertUser',
+      data: userInfo,
+      success: function() {
+        console.log('Successfully insert new user.');
+      },
+      error: function() {
+        console.error('Insert error');
+      }
+    });
   },
   render: function () {
     return (
@@ -43,24 +56,27 @@ var Register = React.createClass({
               <input
                 type="text"
                 class="form-control"
-                onChange={this.handleNameChange}
                 placeholder="Your name"
-                value={this.state.name}
-              />
+                ref="name"
+                />
               <input
                 type="text"
                 class="form-control"
-                onChange={this.handleTypeChange}
                 placeholder="I'm a..."
-                value={this.state.type}                
-              />
+                ref="type"
+                />
               <input
                 type="text"
                 class="form-control"
-                onChange={this.handleCountryChange}
+                placeholder="I want to find a..."
+                ref="target"
+                />
+              <input
+                type="text"
+                class="form-control"
                 placeholder="Home country"
-                value={this.state.country}                
-              />
+                ref="country"
+                />
             </div>
           </div>
         </div>
