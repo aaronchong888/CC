@@ -248,17 +248,53 @@ label {
   height: 100vh;
 }
 
-/*.menuBar{
-  background-color: rgb(2,101,102);
-  width: 100vw;
-  height: 20vh;
-}*/
+.menuBar{
+  padding-left: 15px;
+  padding-top: 25px;
+}
 
 .person{
+  width: 10vw;
+  height: 10vw;
+  background-image: url(../resources/img/profile.png);
+  background-size: contain;
+
+  background-repeat: no-repeat;
+}
+
+.setting{
+  width: 10vw;
+  height: 10vw;
+  background-image: url(../resources/img/setting.png);
+  background-size: contain;
+
+  background-repeat: no-repeat;
+}
+
+.match{
+  background-image: url(../resources/img/matching.png);
+  background-size: contain;
+  margin-top: 20%;
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
 }
 
+.fd {
+  width: 10vw;
+  height: 10vw;
+  background-image: url(../resources/img/friend list.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.mic {
+  width: 10vw;
+  height: 10vw;
+  background-image: url(../resources/img/broadCast.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 /*.logo {
   background-image: url(../resources/img/logo_001.jpg);
   background-size: contain;
