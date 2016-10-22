@@ -36,14 +36,13 @@ var Register = React.createClass({
       type: 'POST',
       url: '/insertUser',
       data: userInfo,
-      async: false
     })
-    .done( function(response){
-      console.log(response);
-      $.get('/menu', function (data){
-          console.log(data);
-        });
-    });
+    // .done(function(response){
+    //   console.log(response);
+    //   $('/menu', function (data){
+    //       console.log(data);
+    //     });
+    // });
   },
   render: function () {
     return (
