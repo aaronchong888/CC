@@ -30,12 +30,15 @@ var Register = React.createClass({
       flight: 'CX530'
     };
 
+    sessionStorage.setItem("userInfo", userInfo);
+
     $.ajax({
       type: 'POST',
       url: '/insertUser',
       data: userInfo,
       success: function() {
         console.log('Successfully insert new user.');
+        $.get('/menu');
       },
       error: function() {
         console.error('Insert error');
