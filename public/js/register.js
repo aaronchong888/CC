@@ -36,13 +36,14 @@ var Register = React.createClass({
       type: 'POST',
       url: '/insertUser',
       data: userInfo,
-    })
-    // .done(function(response){
-    //   console.log(response);
-    //   $('/menu', function (data){
-    //       console.log(data);
-    //     });
-    // });
+    });
+    setTimeout(function () {
+      $.ajax({
+        type: 'GET',
+        url: '/menu'
+      });
+    });
+
   },
   render: function () {
     return (
