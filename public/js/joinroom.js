@@ -127,7 +127,7 @@ var ChatRoomsList = React.createClass({
 
 var UserList = React.createClass({
     render: function() {
-        var name = this.props.userList[0].name;
+        var name = this.props.users[0].name;
         return (
             {name}
         );
