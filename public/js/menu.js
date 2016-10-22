@@ -4,24 +4,10 @@ var Menu = React.createClass({
     return ({data: "data"});
   },
   componentDidMount: function () {
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/insertUser',
-    //   data: {
-    //     name: 'Hugo',
-    //     flight: 'CX578',
-    //     type: 'student',
-    //     target: 'business',
-    //     country: 'HK',
-    //   },
-    //   success: function () {
-    //     console.log('Successfully insert new user.');
-    //   }
-    // });
   },
   render: function () {
     return (
-      <div className = "bkground">
+      <div className="bkground">
           <div className="menuBar">
             <div className="col-xs-2 person">
               <i className="fa fa-user" aria-hidden="true"></i>

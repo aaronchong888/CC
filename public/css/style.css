@@ -242,10 +242,12 @@ label {
 .bkground{
   background-image: url(../resources/img/background-01.jpg);
   background-size: contain;
-
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  align-content: center;
+
 }
 
 .menuBar{
@@ -254,12 +256,6 @@ label {
 }
 
 .person{
-  width: 10vw;
-  height: 10vw;
-  background-image: url(../resources/img/profile.png);
-  background-size: contain;
-
-  background-repeat: no-repeat;
 }
 
 .setting{
