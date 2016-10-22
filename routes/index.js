@@ -50,6 +50,10 @@ router.get('/register', function (req, res, next) {
   res.render('register');
 });
 
+router.get('/menu', function (req, res, next) {
+  res.render('menu');
+});
+
 router.post('/insertUser', function (req, res, next) {
   db.insertUser(req.body.name,
     req.body.flight,
