@@ -57,8 +57,8 @@ router.post('/insertUser', function (req, res, next) {
     req.body.target,
     req.body.country,
     'en',
-    function (err) {
-      console.log(err);
+    function (response) {
+      console.log(response);
     });
 });
 
