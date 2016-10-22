@@ -1,7 +1,7 @@
 var loggedInAs;
 var socket = io();
 var createNewRoomMaxLength = '30';
-import React, { Component, PropTypes } from 'react';
+var React = require('react');
 
 function updateLogInInfo(username) {
     $('#errorMessage').hide(600);
@@ -126,7 +126,7 @@ var ChatRoomsList = React.createClass({
     }
 });
 
-class UserList extends Component {
+class UserList extends React.Component {
     render() {
         {this.props.userList[0].name}
     }
