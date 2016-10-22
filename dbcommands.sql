@@ -4,7 +4,7 @@ CREATE DATABASE ccdb;
 
 DROP TABLE IF EXISTS chat_room;
 
-CREATE TABLE user (
+CREATE TABLE userinfo (
     user_id serial PRIMARY KEY,
     name VARCHAR(40),
     flight VARCHAR(6),
@@ -21,7 +21,7 @@ CREATE TABLE chatroom (
 CREATE TABLE message (
     msg_id serial PRIMARY KEY,
     rm_id VARCHAR(40) REFERENCES chatroom(rm_id),
-    user_id VARCHAR(40) REFERENCES user(user_id),
+    user_id VARCHAR(40) REFERENCES userinfo(user_id),
     msg_type TEXT,
     msg_content TEXT,
     time TIMESTAMPTZ
