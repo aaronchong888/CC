@@ -117,4 +117,13 @@ module.exports = {
     }
 };
 
-console.log(q5);
+function check_queue() {
+    console.log('>>>>>>>>>>>>>QUEUE CHECKING');
+    console.log('Q1 waiting: ' + q1.length);
+    console.log('Q2 waiting: ' + q2.length);
+    console.log('Q3 waiting: ' + q3.length);
+    console.log('Q4 waiting: ' + q4.length);
+    console.log('Q5 waiting: ' + q5.length);
+}
+
+setInterval(check_queue,5000);
