@@ -11,7 +11,7 @@ var Home = React.createClass({
   render: function () {
     return (
       <div>
-        <h1>{this.state.title}</h1>
+        <h1 className="title">{this.state.title}</h1>
         {this.state.welcomeMessage}
       </div>
     );
