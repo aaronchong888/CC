@@ -1,4 +1,3 @@
-var db = require('db');
 var Home = React.createClass({
   getInitialState: function () {
     return ({
