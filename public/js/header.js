@@ -10,20 +10,20 @@ var Header = React.createClass({
   },
   render: function () {
     return (
-      <div className="col-xs-12 custom-nav">
-        <div className="col-xs-3">
-          btn
-        </div>
-        <div className="col-xs-3">
-          btn
-        </div>
-        <div className="col-xs-3">
-          btn
-        </div>
-        <div className="col-xs-3">
-          btn
-        </div>
-      </div>
+      // <div className="col-xs-12 custom-nav">
+      //   <div className="col-xs-3">
+      //     btn
+      //   </div>
+      //   <div className="col-xs-3">
+      //     btn
+      //   </div>
+      //   <div className="col-xs-3">
+      //     btn
+      //   </div>
+      //   <div className="col-xs-3">
+      //     btn
+      //   </div>
+      // </div>
     );
   }
 });
