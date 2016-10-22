@@ -135,31 +135,31 @@ function check_queue() {
             uid1 = q1.shift();
             uid2 = q1.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q2.length > 0){
             uid1 = q1.shift();
             uid2 = q2.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q3.length > 0){
             uid1 = q1.shift();
             uid2 = q3.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q4.length > 0){
             uid1 = q1.shift();
             uid2 = q4.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q5.length > 0){
             uid1 = q1.shift();
             uid2 = q5.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
     }
     if(q2.length > 0){
@@ -167,25 +167,25 @@ function check_queue() {
             uid1 = q2.shift();
             uid2 = q2.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q3.length > 0){
             uid1 = q2.shift();
             uid2 = q3.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q4.length > 0){
             uid1 = q2.shift();
             uid2 = q4.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q5.length > 0){
             uid1 = q2.shift();
             uid2 = q5.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
     }
     if(q4.length > 0){
@@ -193,19 +193,19 @@ function check_queue() {
             uid1 = q4.shift();
             uid2 = q4.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q3.length > 0){
             uid1 = q4.shift();
             uid2 = q3.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q5.length > 0){
             uid1 = q4.shift();
             uid2 = q5.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
     }
     if(q5.length > 0){
@@ -213,20 +213,20 @@ function check_queue() {
             uid1 = q5.shift();
             uid2 = q5.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
         if (q3.length > 0){
             uid1 = q5.shift();
             uid2 = q3.shift();
             createChatRoom(uid1, uid2);
-            break;
+            return;
         }
     }
     if (q3.length > 1){
         uid1 = q3.shift();
         uid2 = q3.shift();
         createChatRoom(uid1, uid2);
-        break;
+        return;
     }
 }
 
