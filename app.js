@@ -38,6 +38,8 @@ app.use('/chatrooms', chatRoomsRouter);
 app.use('/messages', messagesRouter);
 app.use('/r', rRouter(io));
 
+app.use('/scripts', express.static(__dirname + '/node_modules/react-autocomplete/dist/'));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
