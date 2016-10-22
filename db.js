@@ -3,7 +3,33 @@ var pg = require('pg');
 
 // Change to config.pg_local_url if working on local
 var pgURL = config.pg_server_url;
+var Pool = require('pg-pool');
+var url = require('url')
 
+const params = url.parse(pgURL);
+const auth = params.auth.split(':');
+const config = {
+  user: auth[0],
+  password: auth[1],
+  host: params.hostname,
+  port: params.port,
+  database: params.pathname.split('/')[1],
+  ssl: true
+};
+var pool = new Pool(config);
+
+var count = 0
+pool.on('connect', client => {
+  client.count = count++;
+});
+
+pool.connect().then(client => {
+    return client.query('SELECT $1::int AS "clientCount"', [client.count])
+      .then(res => console.log(res.rows[0].clientCount)) // outputs 0
+      .then(() => client)
+}).then(client => client.release());
+
+/*
 function pgQuery(queryString, callback) {
     pg.connect(pgURL, function(err, client, done) {
         if (err) {
@@ -19,6 +45,7 @@ function pgQuery(queryString, callback) {
                 
     });
 }
+*/
 
 module.exports = {
     insertMessage: function(chatRoom, username, message, unix_time, callback) {
