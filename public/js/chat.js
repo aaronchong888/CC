@@ -113,6 +113,7 @@ var ChatPanel = React.createClass({
 
 var MessagesList = React.createClass({
   render: function () {
+    console.log(this.props);
     var messageNodes = this.props.messages.map(function (msg) {
       return (<Message msg={msg} />);
     });
@@ -126,7 +127,6 @@ var MessagesList = React.createClass({
 });
 
 var Message = React.createClass({
-
 
   componentDidMount: function () {
     var messageDOM = this.refs.message.getDOMNode();
