@@ -79,7 +79,7 @@ io.on('connection', function(socket) {
         io.emit('chat message', msgInfo);
         
         // Insert that message to database
-        db.insertMessage(msgInfo.room_name, msgInfo.username, msgInfo.msg, msgInfo.unix_time, function(err) {
+        db.insertMessage(msgInfo.rm_id, msgInfo.user_id, msgInfo.msg_type, msgInfo.msg_content, msgInfo.unix_time, function(err) {
             if (err) {
                 console.log('Error while inserting message into db: ' + err);
             }
