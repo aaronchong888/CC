@@ -318,6 +318,7 @@ label {
 
 .welcome-message {
   text-align: center;
+  padding: 135 0px;
 }
 
 .welcome-container {
@@ -327,9 +328,6 @@ label {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-  display: flex;
-  align-content: center;
-  justify-content: center;
 }
 
 .register-panel {
