@@ -128,6 +128,7 @@ var MessagesList = React.createClass({
 
 var Message = React.createClass({
 
+
   componentDidMount: function () {
     var messageDOM = this.refs.message.getDOMNode();
     messageDOM.scrollIntoView();
@@ -142,6 +143,7 @@ var Message = React.createClass({
       </li>
     );
   },
+
   componentDidMount: function () {
     var messageDOM = this.refs.message.getDOMNode();
     messageDOM.scrollIntoView();
