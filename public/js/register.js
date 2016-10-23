@@ -57,25 +57,25 @@ var Register = React.createClass({
               <div className="panel-body">
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control input-lg"
                   placeholder="Your name"
                   ref="name"
                   />
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control input-lg"
                   placeholder="I'm a..."
                   ref="type"
                   />
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control input-lg"
                   placeholder="I want to find a..."
                   ref="target"
                   />
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control input-lg"
                   placeholder="Home country"
                   ref="country"
                   />
