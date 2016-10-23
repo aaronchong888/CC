@@ -232,11 +232,6 @@ label {
   user-select: none;
 }
 
-.bkground {
-  width: 100vw;
-  height: 100vh;
-}
-
 .menuBar {
   width: 100vw;
   height: 20vh;

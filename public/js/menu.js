@@ -7,7 +7,7 @@ var Menu = React.createClass({
   },
   render: function () {
     return (
-      <div className="bkground">
+      <div>
         <div className="row menuBar">
           <div className="col-xs-2">
             <i className="fa fa-user person" aria-hidden="true"></i>
