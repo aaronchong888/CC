@@ -8,6 +8,7 @@ var Register = React.createClass({
       types: ['business', 'travel', 'returnHome', 'transit', 'others'],
       homeCountries: ['China', 'Taiwan', 'Japan', 'United States'],
       name: '',
+      id: '',
       type: '',
       country: ''
     });
@@ -98,4 +99,3 @@ React.render(
   <Register />,
   document.getElementById('register')
 );
-

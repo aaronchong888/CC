@@ -324,3 +324,50 @@ label {
 .register-panel {
     margin: 15px;
 }
+
+.chat-bg {
+  background-image: url(../resources/img/bkground01-01.jpg);
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.exit {
+  width: 10vw;
+  height: 10vw;
+  background-image: url(../resources/img/exit01.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 15px;
+}
+
+.next{
+  width: 10vw;
+  height: 10vw;
+  background-image: url(../resources/img/next01.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.plus{
+  width: 10vw;
+  height: 10vw;
+  background-image: url(../resources/img/plus.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.send{
+  width: 10vw;
+  height: 10vw;
+  background-image: url(../resources/img/send01.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.name{
+  color: #FFFFFF;
+  font-size: 22px;
+}

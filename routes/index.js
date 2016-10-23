@@ -53,6 +53,10 @@ router.get('/menu', function (req, res, next) {
   res.render('menu');
 });
 
+router.get('/chat', function (req, res, next) {
+  res.render('chat');
+});
+
 router.post('/insertUser', function (req, res, next) {
   db.insertUser(req.body.name,
     req.body.flight,
