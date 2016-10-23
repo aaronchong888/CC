@@ -68,10 +68,7 @@ router.post('/insertUser', function (req, res, next) {
       console.log(response);
     });
 });
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 
 
 
