@@ -37,6 +37,9 @@ var Register = React.createClass({
       type: 'POST',
       url: '/insertUser',
       data: userInfo,
+      success: function(response) {
+        console.log(response);
+      }
     });
     setTimeout(function () {
       window.location.replace( window.location.origin + '/menu');
