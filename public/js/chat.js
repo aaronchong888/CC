@@ -6,9 +6,10 @@ var Chat = React.createClass({
   // handleData: function(rmId){
   //   sessionStorage.setItem("rmId", rmId);
   // },
-  // componentDidMount: function () {
+  componentDidMount: function () {
+      sessionStorage.setItem("rmId", '1');
   //   getChatRoom(JSON.parse(sessionStorage.getItem("userInfo")).name, handleData);
-  // },
+  },
   render: function () {
     return (
       <div className = "chat-bg col-xs-12">
@@ -78,16 +79,34 @@ var NextIcon = React.createClass({
 
 var ChatPanel = React.createClass({
   getInitialState:function(){
-    return {data: "data"};
+    socket.on('chat message', this.m)
+    return {data: []};
   },
-  handleData:function(msgDetail){
-    sessionStorage.setItem("msgDetail", msgDetail);
+  messageRecieve: function(msgInfo) {
+      if (msgInfo.room_name === roomName) {
+          // Create a new msgInfo for this current React app
+
+          // Hour:Minute time
+          var HHMITime = convertToHHMI(msgInfo.unix_time);
+          var newMsg = {
+              username: msgInfo.username,
+              msg: msgInfo.msg,
+              time: HHMITime
+          };
+
+          // Here we are concatenating the new emitted message into our ChatApp's messages list
+          var messages = this.state.messages;
+          var newMessages = messages.concat(newMsg);
+          this.setState({data: newMessages});
+          // this.trimMessagesStateIfNecessary();
+      }
   },
   componentDidMount: function(){
+
     getMessage(sessionStorage.getItem("rmId"), handleData);
   },
   render: function(){
-    var msg = JSON.parse(sessionStorage.getItem("msgDetail")).map( function(message){
+    var msg = this.state.data.map( function(message){
       if (message.msg_content){
         return(
           <div>
