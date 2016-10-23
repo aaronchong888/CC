@@ -349,8 +349,8 @@ label {
   background-image: url(../resources/img/exit01.png);
   background-size: contain;
   background-repeat: no-repeat;
-  padding-left: 35px;
-  padding-top: 10px;
+  margin-left: 35px;
+  margin-top: 10px;
 }
 
 .next{
@@ -359,7 +359,7 @@ label {
   background-image: url(../resources/img/next01.png);
   background-size: contain;
   background-repeat: no-repeat;
-  padding-left: 20px;
+  margin-left: 20px;
 }
 
 .plus{
