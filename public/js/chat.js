@@ -139,25 +139,45 @@ var ChatPanel = React.createClass({
       this.setState({data: messages});
   },
   render: function(){
-    var msg = this.state.data.map( function(message){
-      if (JSON.parse(message).msg_content){
-        return(
-          <div>
-            {JSON.parse(message).to_char}
-          </div>
-        );
-      }
-      else {
-        return(
-          <div>
-          </div>
-        );
-      }
-    }
-  )
-
-}
+    return (
+      <div>
+        <MessagesList messages={this.state.data} />
+      </div>
+    )
+  }
 });
+
+var MessagesList = React.createClass({
+    render: function() {
+        var messageNodes = this.props.messages.map(function(msg) {
+            return (<Message msg={msg} />);
+        });
+
+        return (
+            <ul className='messagesList'>
+                {messageNodes}
+            </ul>
+        );
+    }
+});
+
+var Message = React.createClass({
+    componentDidMount: function() {
+        var messageDOM = this.refs.message.getDOMNode();
+        messageDOM.scrollIntoView();
+    },
+    render: function() {
+        var msg = this.props.msg;
+        return (
+            <li className='message' ref='message'>
+                <span className='messageTime'>{msg.time} </span>
+                <b className='username'>{msg.username}</b> 
+                <span className='messageText'>: {msg.msg_content}</span>
+            </li>
+        );
+    }
+});
+
 
 var SdMsg = React.createClass({
   getInitialState: function(){
