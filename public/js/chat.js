@@ -6,11 +6,13 @@ function getCurrUnixTime() {
 
 var Chat = React.createClass({
   getInitialState: function () {
-    return ([{
-      username: "Warren",
-      time: '1122313',
-      msg_content: "Hello"
-    }]);
+    return {
+      data: [{
+        username: "Warren",
+        time: '1122313',
+        msg_content: "Hello"
+      }]
+    };
   },
   componentDidMount: function () {
     $.ajax({
