@@ -4,7 +4,7 @@ var db = require('../db.js');
 
 router.get('/', function(req, res, next){
     if (req.query.chatroom && req.query.limit) {
-        db.getMessages(req.query.chatroom, req.query.limit, function(err, rows) {
+        db.getMessage(req.query.chatroom, req.query.limit, function(err, rows) {
             if (err) {
                 res.send(err);
             } else {

@@ -9,6 +9,7 @@ var Home = React.createClass({
     setTimeout(function () {
       window.location.replace( window.location.origin + '/register');
     }, 5000);
+    
   },
   render: function () {
     return (
