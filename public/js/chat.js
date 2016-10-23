@@ -6,7 +6,11 @@ function getCurrUnixTime() {
 
 var Chat = React.createClass({
   getInitialState: function () {
-    return ({ data: "data" });
+    return ([{
+      username: "Warren",
+      time: '1122313',
+      msg_content: "Hello"
+    }]);
   },
   componentDidMount: function () {
     $.ajax({
@@ -39,7 +43,7 @@ var Chat = React.createClass({
             <NextIcon />
           </div>
         </div>
-        this.state.data == "data" ? null : <ChatPanel messages={this.state.data} />
+        <ChatPanel messages={this.state.data} />
         <hr />
         <ChatBox onNewMessage={this.handleNewMessage.bind(this)} />
       </div>
