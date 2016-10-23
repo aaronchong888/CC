@@ -77,6 +77,16 @@ module.exports = {
             }
         });
     },
+    getUserId: function(name, callback) {
+        var getUserIdQueryString = 'SELECT user_id FROM userinfo WHERE user_id =\'' + user_id + '\'';
+        pgQuery(getUserIdQueryString, function(err, result) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(result.rows[0].user_id);
+            }
+        });
+    },
     getChatRoom: function(user_id, callback) {
         var getChatRoomQueryString = 'SELECT rm_id FROM chatroom WHERE user_id1 =\'' + user_id + '\'' +'or user_id2 =\'' + user_id + '\'';
         pgQuery(getChatRoomQueryString, function(err, result) {
