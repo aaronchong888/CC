@@ -12,8 +12,9 @@ var Home = React.createClass({
     return (
       <div className="welcome-container">
         <div className="welcome-cover" />
-        <h1 className="title">{this.state.title}</h1>
-        {this.state.welcomeMessage}
+        <div className="welcome-message">
+          <h2>{this.state.welcomeMessage}</h2>
+        </div>
       </div>
     );
   }

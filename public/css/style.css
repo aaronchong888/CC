@@ -313,6 +313,11 @@ label {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+  height: 20vh;
+}
+
+.welcome-message {
+  text-align: center;
 }
 
 .welcome-container {
