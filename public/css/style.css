@@ -263,6 +263,7 @@ label {
 }
 
 .fd {
+  maring-left: 40px;
   width: 15vw;
   height: 15vw;
   background-image: url(../resources/img/friendList.png);
