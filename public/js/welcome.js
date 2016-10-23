@@ -6,7 +6,9 @@ var Home = React.createClass({
     });
   },
   componentDidMount: function () {
-    
+    setTimeout(function () {
+      window.location.replace( window.location.origin + '/register');
+    }, 5000);
   },
   render: function () {
     return (
