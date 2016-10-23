@@ -58,19 +58,19 @@ var Register = React.createClass({
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Your name"
+                  placeholder="Username"
                   ref="name"
                   />
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="I'm a..."
+                  placeholder="My reason of traveling"
                   ref="type"
                   />
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="I want to find a..."
+                  placeholder="Matching preference"
                   ref="target"
                   />
                 <input
