@@ -260,7 +260,6 @@ label {
 .match {
   background-image: url(../resources/img/matching.png);
   background-size: contain;
-  margin-top: 30%;
   background-repeat: no-repeat;
   width: 60vw;
   height: 55vh;
