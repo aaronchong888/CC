@@ -192,6 +192,7 @@ var SdMsg = React.createClass({
 
 var ChatBox = React.createClass({
   handleSubmit: function () {
+    console.log('SUBMITTTTTTT');
     var newMsg = {
       rm_id: '1',
       user_id: '1',
@@ -207,7 +208,7 @@ var ChatBox = React.createClass({
         var messages = this.state.data;
         var newMessages = data.concat(newMsg);
         this.setState({ data: newMessages });
-      }.bind(this)
+      }
     });
   },
   render: function () {
