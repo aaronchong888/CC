@@ -191,9 +191,6 @@ var SdMsg = React.createClass({
 });
 
 var ChatBox = React.createClass({
-  getInitialState: function () {
-
-  },
   handleSubmit: function () {
     var newMsg = {
       rm_id: '1',
