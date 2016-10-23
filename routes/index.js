@@ -53,16 +53,8 @@ router.get('/menu', function (req, res, next) {
   res.render('menu');
 });
 
-router.post('/insertUser', function (req, res, next) {
-  db.insertUser(req.body.name,
-    req.body.flight,
-    req.body.type,
-    req.body.target,
-    req.body.country,
-    req.body.language,
-    function (response) {
-      console.log(response);
-    });
+router.get('/chat', function (req, res, next) {
+  res.render('chat');
 });
 
 router.post('/insertUser', function (req, res, next) {
@@ -76,6 +68,8 @@ router.post('/insertUser', function (req, res, next) {
       console.log(response);
     });
 });
+
+
 
 
 module.exports = router;
