@@ -63,7 +63,7 @@ module.exports = {
                             case "homereturn":
                                 q3.push(result.rows[0].user_id);
                                 break;
-                            case "transit":
+                              case "transit":
                                 q4.push(result.rows[0].user_id);
                                 break;
                             default:
@@ -78,7 +78,7 @@ module.exports = {
         });
     },
     getUserId: function(name, callback) {
-        var getUserIdQueryString = 'SELECT user_id FROM userinfo WHERE name =\'' + name + '\'';
+        var getUserIdQueryString = 'SELECT MAX(user_id) as user_id FROM userinfo';
         pgQuery(getUserIdQueryString, function(err, result) {
             if (err) {
                 callback(err);
