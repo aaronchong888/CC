@@ -218,8 +218,7 @@ var ChatBox = React.createClass({
         <div className="input col-xs-8">
           <input type="text" name="msg" className="msg" placeholder="ENTER YOUR MESSAGE......" ref="chatbox" />
         </div>
-        <div onClick={this.handleSubmit} className="send col-xs-2">
-        </div>
+        <button onClick={this.handleSubmit} className="send" />
       </div>
     );
   }
