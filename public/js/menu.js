@@ -10,10 +10,10 @@ var Menu = React.createClass({
       <div className="bkground">
         <div className="row menuBar">
           <div className="col-xs-2">
-            <i className="fa fa-user" aria-hidden="true"></i>
+            <i className="fa fa-user person" aria-hidden="true"></i>
           </div>
           <div className="col-xs-offset-8 col-xs-2">
-            <i className="fa fa-gear" aria-hidden="true"></i>
+            <i className="fa fa-gear setting" aria-hidden="true"></i>
           </div>
         </div>
 
