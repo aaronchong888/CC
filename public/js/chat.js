@@ -128,7 +128,7 @@ var ChatPanel = React.createClass({
       this.setState({data: messages});
   },
   trimMessagesStateIfNecessary: function() {
-      var messages = this.state.messages;
+      var messages = this.state.data;
       var messagesLength = messages.length;
       var appUiLim = this.props.uiLimit;
 
