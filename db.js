@@ -109,7 +109,7 @@ module.exports = {
     },
     getMessage: function(rm_id, limit, callback) {
         // No need for time zone conversion!
-        var getMessageQueryString = 'SELECT name, msg_type, msg_content, to_char(time, \'HH24:MI\') as time FROM userinfo, message WHERE userinfo.userid=message.userid and message.rm_id=\'' + rm_id + '\'' + ' LIMIT ' + limit;
+        var getMessageQueryString = 'SELECT name, msg_type, msg_content, to_char(time, \'HH24:MI\') as time FROM userinfo, message WHERE userinfo.user_id=message.user_id and message.rm_id=\'' + rm_id + '\'' + ' LIMIT ' + limit;
 
         pgQuery(getMessageQueryString, function(err, result) {
             if (err) {
