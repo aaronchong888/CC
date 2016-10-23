@@ -255,11 +255,6 @@ label {
   padding: 0;
 }
 
-.matchContainer {
-  
-  text-align: center;
-}
-
 .match {
   background-image: url(../resources/img/matching.png);
   background-size: contain;
