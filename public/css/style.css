@@ -251,10 +251,6 @@ label {
   margin: 25px -25px;
 }
 
-.matchCol {
-  padding: 0;
-}
-
 .match {
   background-image: url(../resources/img/matching.png);
   background-size: contain;
@@ -266,16 +262,16 @@ label {
 }
 
 .fd {
-  width: 15vw;
-  height: 15vw;
+  width: 12vw;
+  height: 12vw;
   background-image: url(../resources/img/friendList.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .mic {
-  width: 15vw;
-  height: 15vw;
+  width: 12vw;
+  height: 12vw;
   background-image: url(../resources/img/broadCast.png);
   background-size: contain;
   background-repeat: no-repeat;
