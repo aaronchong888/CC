@@ -67,6 +67,7 @@ router.post('/insertUser', function (req, res, next) {
     function (response) {
       console.log(response);
     });
+});
 
 
 
