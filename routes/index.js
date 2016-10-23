@@ -67,19 +67,8 @@ router.post('/insertUser', function (req, res, next) {
     function (response) {
       console.log(response);
     });
-});
 
-router.post('/insertUser', function (req, res, next) {
-  db.insertUser(req.body.name,
-    req.body.flight,
-    req.body.type,
-    req.body.target,
-    req.body.country,
-    req.body.language,
-    function (response) {
-      console.log(response);
-    });
-});
+
 
 
 module.exports = router;
