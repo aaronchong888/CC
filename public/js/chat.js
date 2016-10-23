@@ -9,13 +9,23 @@ var Chat = React.createClass({
     socket.on('chat message', this.messageRecieve);
     return ({ data: "data" });
   },
-  // handleData: function(rmId){
-  //   sessionStorage.setItem("rmId", rmId);
-  // },
   componentDidMount: function () {
-    sessionStorage.setItem("rmId", '1');
-    sessionStorage.setItem("name", 'hugo');
-    //   getChatRoom(JSON.parse(sessionStorage.getItem("userInfo")).name, handleData);
+    $.ajax({
+      url: '/messages/?chatroom=' + '1' + '&limit=' + '20',
+      dataType: 'json',
+      success: function (data) {
+        this.setState({ data: data });
+        // this.trimMessagesStateIfNecessary();
+      }.bind(this),
+      failure: function (xhr, status, err) {
+        console.err(url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  handleNewMessage: function(newMsg) {
+    var messages = this.state.data;
+    var newMessages = messages.concat(newMsg);
+    this.setState({ data: newMessages });
   },
   render: function () {
     return (
@@ -30,9 +40,9 @@ var Chat = React.createClass({
             <NextIcon />
           </div>
         </div>
-        <ChatPanel />
+        <ChatPanel messages={this.state.data} />
         <hr />
-        <ChatBox />
+        <ChatBox onNewMessage={this.handleNewMessage.bind(this)} />
       </div>
     );
   }
@@ -44,12 +54,11 @@ var ExitIcon = React.createClass({
   },
 
   handleClick: function () {
-
     window.location.href = "menu";
   },
   render: function () {
     return (
-      <div className="name">
+      <div onClick={this.handleClick} className="name">
         {JSON.parse(sessionStorage.getItem("userInfo")).name}
       </div>
     );
@@ -78,41 +87,10 @@ var NextIcon = React.createClass({
 
 var ChatPanel = React.createClass({
   getInitialState: function () {
-    socket.on('chat message', this.messageReceive);
     return { data: [] };
-  },
-  messageRecieve: function (msgInfo) {
-
-    // Create a new msgInfo for this current React app
-
-    // Hour:Minute time
-    var HHMITime = convertToHHMI(msgInfo.unix_time);
-    var newMsg = {
-      username: msgInfo.username,
-      msg: msgInfo.msg,
-      time: HHMITime
-    };
-
-    // Here we are concatenating the new emitted message into our ChatApp's messages list
-    var messages = this.state.data;
-    var newMessages = data.concat(newMsg);
-    this.setState({ data: newMessages });
-    // this.trimMessagesStateIfNecessary();
-
   },
   componentDidMount: function () {
     // On ChatApp load, grab message history of current chat room from the /messages API
-    $.ajax({
-      url: '/messages/?chatroom=' + '1' + '&limit=' + '20',
-      dataType: 'json',
-      success: function (data) {
-        this.setState({ data: data });
-        // this.trimMessagesStateIfNecessary();
-      }.bind(this),
-      failure: function (xhr, status, err) {
-        console.err(url, status, err.toString());
-      }.bind(this)
-    });
   },
   trimMessagesStateIfNecessary: function () {
     var messages = this.state.data;
@@ -125,21 +103,10 @@ var ChatPanel = React.createClass({
 
     this.setState({ data: messages });
   },
-  trimMessagesStateIfNecessary: function () {
-    var messages = this.state.data;
-    var messagesLength = messages.length;
-    var appUiLim = this.props.uiLimit;
-
-    if (appUiLim < messagesLength) {
-      messages.splice(0, messagesLength - uiLimit);
-    }
-
-    this.setState({ data: messages });
-  },
   render: function () {
     return (
       <div>
-        <MessagesList messages={this.state.data} />
+        <MessagesList messages={this.props.messages} />
       </div>
     )
   }
@@ -209,18 +176,6 @@ var SdMsg = React.createClass({
 });
 
 var ChatBox = React.createClass({
-  handleSubmit: function () {
-    var newMsg = {
-      rm_id: '1',
-      user_id: '1',
-      msg_type: 'text',
-      msg_content: this.refs.chatbox.value,
-    };
-    socket.emit('chat message', newMsg);
-    var messages = this.state.data;
-    var newMessages = data.concat(newMsg);
-    this.setState({ data: newMessages });
-  },
   render: function () {
     return (
       <div className="row">
@@ -229,7 +184,7 @@ var ChatBox = React.createClass({
         <div className="input col-xs-8">
           <input type="text" name="msg" className="msg" placeholder="ENTER YOUR MESSAGE......" ref="chatbox" />
         </div>
-        <button onClick={this.handleSubmit} className="send" />
+        <button onClick={this.props.onNewMessage} className="send" />
       </div>
     );
   }
