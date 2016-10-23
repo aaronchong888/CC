@@ -23,11 +23,11 @@ var Menu = React.createClass({
             </div>
           </div>
         </div>
-        {/*<div className="row">
+        <div className="row">
           <div className="col-xs-2 fd">
           </div>
           <div className="col-xs-offset-8 col-xs-2 mic" />
-        </div>*/}
+        </div>
       </div>
     );
   }

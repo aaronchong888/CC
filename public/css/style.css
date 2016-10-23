@@ -243,6 +243,7 @@ label {
   background-image: url(../resources/img/menubar.jpg);
   background-size: contain;
   background-repeat: no-repeat;
+  margin-top: -5px;
 }
 
 .person {
@@ -256,6 +257,7 @@ label {
 }
 
 .matchContainer {
+  padding: 0;
   text-align: center;
 }
 
@@ -265,7 +267,7 @@ label {
   background-repeat: no-repeat;
   background-position: center;
   margin: 0 auto;
-  width: 45vw;
+  width: 60vw;
   height: 50vh;
 }
 
