@@ -6,7 +6,6 @@ function getCurrUnixTime() {
 
 var Chat = React.createClass({
   getInitialState: function () {
-    socket.on('chat message', this.messageRecieve);
     return ({ data: "data" });
   },
   componentDidMount: function () {
