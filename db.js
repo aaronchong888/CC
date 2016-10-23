@@ -78,7 +78,7 @@ module.exports = {
         });
     },
     getUserId: function(name, callback) {
-        var getUserIdQueryString = 'SELECT user_id FROM userinfo WHERE user_id =\'' + user_id + '\'';
+        var getUserIdQueryString = 'SELECT user_id FROM userinfo WHERE name =\'' + name + '\'';
         pgQuery(getUserIdQueryString, function(err, result) {
             if (err) {
                 callback(err);
