@@ -119,7 +119,7 @@ var MessagesList = React.createClass({
     });
 
     return (
-      <ul className='messagesList chat-panel'>
+      <ul className='messagesList'>
         {messageNodes}
       </ul>
     );
@@ -128,20 +128,6 @@ var MessagesList = React.createClass({
 
 var Message = React.createClass({
 
-    componentDidMount: function() {
-        var messageDOM = this.refs.message.getDOMNode();
-        messageDOM.scrollIntoView();
-    },
-    render: function() {
-        var msg = this.props.msg;
-        return (
-            <li className='message' ref='message'>
-                <span className='messageTime'>{msg.time} </span>
-                <b className='username'>{msg.username}</b>
-                <span className='messageText'>: {msg.msg_content}</span>
-            </li>
-        );
-    }
 
   componentDidMount: function () {
     var messageDOM = this.refs.message.getDOMNode();
