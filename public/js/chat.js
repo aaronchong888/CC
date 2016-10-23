@@ -39,7 +39,7 @@ var Chat = React.createClass({
             <NextIcon />
           </div>
         </div>
-        <ChatPanel messages={this.state.data} />
+        this.state.data == "data" ? null : <ChatPanel messages={this.state.data} />
         <hr />
         <ChatBox onNewMessage={this.handleNewMessage.bind(this)} />
       </div>
