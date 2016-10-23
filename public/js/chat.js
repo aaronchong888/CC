@@ -1,20 +1,25 @@
 var socket = io();
+
+function getCurrUnixTime() {
+  return Math.floor((new Date().getTime()) / 1000);
+}
+
 var Chat = React.createClass({
   getInitialState: function () {
-    return ({data: "data"});
+    return ({ data: "data" });
   },
   // handleData: function(rmId){
   //   sessionStorage.setItem("rmId", rmId);
   // },
   componentDidMount: function () {
-      sessionStorage.setItem("rmId", '1');
-      sessionStorage.setItem("name", 'hugo');
-  //   getChatRoom(JSON.parse(sessionStorage.getItem("userInfo")).name, handleData);
+    sessionStorage.setItem("rmId", '1');
+    sessionStorage.setItem("name", 'hugo');
+    //   getChatRoom(JSON.parse(sessionStorage.getItem("userInfo")).name, handleData);
   },
   render: function () {
     return (
-      <div className = "chat-bg col-xs-12">
-        <div className= "row">
+      <div className="chat-bg col-xs-12">
+        <div className="row">
           <div className="col-xs-2 exit">
           </div>
           <div className="col-xs-2 col-xs-offset-2">
@@ -25,32 +30,24 @@ var Chat = React.createClass({
           </div>
         </div>
         <ChatPanel />
-        <hr/>
-        <div className="row">
-          <div className="plus col-xs-2">
-          </div>
-          <div className="input col-xs-8">
-            <input type="text" name="msg" className="msg" placeholder="ENTER YOUR MESSAGE......" value="" />
-          </div>
-          <div className="send col-xs-2">
-          </div>
-        </div>
+        <hr />
+        <ChatBox />
       </div>
     );
   }
 });
 
 var ExitIcon = React.createClass({
-  getInitialState:function(){
-    return {data: "data"};
+  getInitialState: function () {
+    return { data: "data" };
   },
 
-  handleClick:function(){
+  handleClick: function () {
 
     window.location.href = "menu";
   },
-  render: function(){
-    return(
+  render: function () {
+    return (
       <div className="name">
         {JSON.parse(sessionStorage.getItem("userInfo")).name}
       </div>
@@ -59,18 +56,18 @@ var ExitIcon = React.createClass({
 });
 
 var NextIcon = React.createClass({
-  getInitialState:function(){
-    return {data: "data"};
+  getInitialState: function () {
+    return { data: "data" };
   },
-  handleErr: function(errMsg){
+  handleErr: function (errMsg) {
     this.setState(data, errMsg);
   },
-  handleClick:function(){
+  handleClick: function () {
     var id = sessionStorage.getItem("rmId");
     deleteChatRoom(id, handleErr);
     window.location.href = "chat";
   },
-  render: function(){
+  render: function () {
     return (
       <div className="next">
       </div>
@@ -79,66 +76,66 @@ var NextIcon = React.createClass({
 });
 
 var ChatPanel = React.createClass({
-  getInitialState:function(){
+  getInitialState: function () {
     socket.on('chat message', this.messageReceive);
-    return {data: []};
+    return { data: [] };
   },
-  messageRecieve: function(msgInfo) {
+  messageRecieve: function (msgInfo) {
 
-          // Create a new msgInfo for this current React app
+    // Create a new msgInfo for this current React app
 
-          // Hour:Minute time
-          var HHMITime = convertToHHMI(msgInfo.unix_time);
-          var newMsg = {
-              username: msgInfo.username,
-              msg: msgInfo.msg,
-              time: HHMITime
-          };
+    // Hour:Minute time
+    var HHMITime = convertToHHMI(msgInfo.unix_time);
+    var newMsg = {
+      username: msgInfo.username,
+      msg: msgInfo.msg,
+      time: HHMITime
+    };
 
-          // Here we are concatenating the new emitted message into our ChatApp's messages list
-          var messages = this.state.data;
-          var newMessages = data.concat(newMsg);
-          this.setState({data: newMessages});
-          // this.trimMessagesStateIfNecessary();
+    // Here we are concatenating the new emitted message into our ChatApp's messages list
+    var messages = this.state.data;
+    var newMessages = data.concat(newMsg);
+    this.setState({ data: newMessages });
+    // this.trimMessagesStateIfNecessary();
 
   },
-  componentDidMount: function() {
-      // On ChatApp load, grab message history of current chat room from the /messages API
-      $.ajax({
-          url: '/messages/?chatroom=' + '1' +'&limit=' + '20',
-          dataType: 'json',
-          success: function(data) {
-              this.setState({data: data});
-              // this.trimMessagesStateIfNecessary();
-          }.bind(this),
-          failure: function(xhr, status, err) {
-              console.err(url, status, err.toString());
-          }.bind(this)
-      });
+  componentDidMount: function () {
+    // On ChatApp load, grab message history of current chat room from the /messages API
+    $.ajax({
+      url: '/messages/?chatroom=' + '1' + '&limit=' + '20',
+      dataType: 'json',
+      success: function (data) {
+        this.setState({ data: data });
+        // this.trimMessagesStateIfNecessary();
+      }.bind(this),
+      failure: function (xhr, status, err) {
+        console.err(url, status, err.toString());
+      }.bind(this)
+    });
   },
-  trimMessagesStateIfNecessary: function() {
-      var messages = this.state.data;
-      var messagesLength = data.length;
-      var appUiLim = this.props.uiLimit;
+  trimMessagesStateIfNecessary: function () {
+    var messages = this.state.data;
+    var messagesLength = data.length;
+    var appUiLim = this.props.uiLimit;
 
-      if (appUiLim < messagesLength) {
-          data.splice(0, messagesLength - uiLimit);
-      }
+    if (appUiLim < messagesLength) {
+      data.splice(0, messagesLength - uiLimit);
+    }
 
-      this.setState({data: messages});
+    this.setState({ data: messages });
   },
-  trimMessagesStateIfNecessary: function() {
-      var messages = this.state.data;
-      var messagesLength = messages.length;
-      var appUiLim = this.props.uiLimit;
+  trimMessagesStateIfNecessary: function () {
+    var messages = this.state.data;
+    var messagesLength = messages.length;
+    var appUiLim = this.props.uiLimit;
 
-      if (appUiLim < messagesLength) {
-          messages.splice(0, messagesLength - uiLimit);
-      }
+    if (appUiLim < messagesLength) {
+      messages.splice(0, messagesLength - uiLimit);
+    }
 
-      this.setState({data: messages});
+    this.setState({ data: messages });
   },
-  render: function(){
+  render: function () {
     return (
       <div>
         <MessagesList messages={this.state.data} />
@@ -148,20 +145,21 @@ var ChatPanel = React.createClass({
 });
 
 var MessagesList = React.createClass({
-    render: function() {
-        var messageNodes = this.props.messages.map(function(msg) {
-            return (<Message msg={msg} />);
-        });
+  render: function () {
+    var messageNodes = this.props.messages.map(function (msg) {
+      return (<Message msg={msg} />);
+    });
 
-        return (
-            <ul className='messagesList'>
-                {messageNodes}
-            </ul>
-        );
-    }
+    return (
+      <ul className='messagesList'>
+        {messageNodes}
+      </ul>
+    );
+  }
 });
 
 var Message = React.createClass({
+
     componentDidMount: function() {
         var messageDOM = this.refs.message.getDOMNode();
         messageDOM.scrollIntoView();
@@ -176,22 +174,76 @@ var Message = React.createClass({
             </li>
         );
     }
+
+  componentDidMount: function () {
+    var messageDOM = this.refs.message.getDOMNode();
+    messageDOM.scrollIntoView();
+  },
+  render: function () {
+    var msg = this.props.msg;
+    return (
+      <li className='message' ref='message'>
+        <span className='messageTime'>{msg.time} </span>
+        <b className='username'>{msg.username}</b>
+        <span className='messageText'>: {msg.msg_content}</span>
+      </li>
+    );
+  }
+>>>>>>> origin/master
 });
 
 
 var SdMsg = React.createClass({
-  getInitialState: function(){
-    return {data: "data"};
+  getInitialState: function () {
+    return { data: "data" };
   },
-  onClick: function(){
+  onClick: function () {
 
   },
-  render: function(){
-    return(
+  render: function () {
+    return (
       <div></div>
     );
   }
 });
+
+var ChatBox = React.createClass({
+  getInitialState: function () {
+
+  },
+  handleSubmit: function () {
+    var newMsg = {
+      rm_id: '1',
+      user_id: '1',
+      msg_type: 'text',
+      msg: this.refs.chatbox.value,
+    };
+    $.ajax({
+      type: 'POST',
+      url: '/insertMessage',
+      data: newMsg,
+      success: function () {
+        console.log('Successfully insert messages');
+        var messages = this.state.data;
+        var newMessages = data.concat(newMsg);
+        this.setState({ data: newMessages });
+      }.bind(this)
+    });
+  },
+  render: function () {
+    return (
+      <div className="row">
+        <div className="plus col-xs-2">
+        </div>
+        <div className="input col-xs-8">
+          <input type="text" name="msg" className="msg" placeholder="ENTER YOUR MESSAGE......" ref="chatbox" />
+        </div>
+        <div onClick={this.handleSubmit} className="send col-xs-2">
+        </div>
+      </div>
+    );
+  }
+})
 
 React.render(
   <Chat />,
