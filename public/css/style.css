@@ -322,6 +322,9 @@ label {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .register-panel {
