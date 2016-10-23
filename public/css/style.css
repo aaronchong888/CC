@@ -240,21 +240,21 @@ label {
 }
 
 .menuBar {
-  padding-left: 15px;
-  padding-top: 25px;
+  width: 100vw;
+  height: 20vh;
   background-image: url(../resources/img/menubar.jpg);
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.person {}
+.person {
+  font-size: 40px;
+  padding: 22px 0;
+}
 
 .setting {
-  width: 10vw;
-  height: 10vw;
-  background-image: url(../resources/img/setting.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+  font-size: 40px;
+  padding: 22px 0;
 }
 
 .match {
