@@ -256,8 +256,7 @@ label {
 }
 
 .matchContainer {
-  display: flux;
-  align-content: center;
+  text-align: center;
 }
 
 .match {
@@ -265,6 +264,9 @@ label {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  margin: 0 auto;
+  width: 45vw;
+  height: 50vh;
 }
 
 .fd {
