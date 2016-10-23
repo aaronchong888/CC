@@ -1,9 +1,11 @@
-
 var Menu = React.createClass({
   getInitialState: function () {
     return ({ data: "data" });
   },
   componentDidMount: function () {
+    setTimeout(function () {
+      window.location.replace( window.location.origin + '/chat');
+    }, 5000);
   },
   render: function () {
     return (
