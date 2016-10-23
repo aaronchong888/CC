@@ -1,8 +1,8 @@
 var Home = React.createClass({
   getInitialState: function () {
     return ({
-      title: 'CC',
-      welcomeMessage: 'Welcome to CC, enjoy speedy matching!'
+      title: 'CathayConnect',
+      welcomeMessage: 'Welcome! Enjoy speedy matching!'
     });
   },
   componentDidMount: function () {
@@ -10,7 +10,8 @@ var Home = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div className="welcome-container">
+        <div className="welcome-cover" />
         <h1 className="title">{this.state.title}</h1>
         {this.state.welcomeMessage}
       </div>
