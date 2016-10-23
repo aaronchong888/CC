@@ -197,7 +197,7 @@ var ChatBox = React.createClass({
       rm_id: '1',
       user_id: '1',
       msg_type: 'text',
-      msg: this.refs.chatbox.value,
+      msg_content: this.refs.chatbox.value,
     };
     $.ajax({
       type: 'POST',
