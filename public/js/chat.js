@@ -79,7 +79,7 @@ var NextIcon = React.createClass({
 
 var ChatPanel = React.createClass({
   getInitialState:function(){
-    socket.on('chat message', this.m)
+    socket.on('chat message', this.messageReceive);
     return {data: []};
   },
   messageRecieve: function(msgInfo) {
@@ -101,9 +101,41 @@ var ChatPanel = React.createClass({
           // this.trimMessagesStateIfNecessary();
       }
   },
-  componentDidMount: function(){
+  componentDidMount: function() {
+      // On ChatApp load, grab message history of current chat room from the /messages API
+      $.ajax({
+          url: '/messages/?chatroom=' + '1' +'&limit=' + limit,
+          dataType: 'json',
+          success: function(data) {
+              this.setState({data: data});
+              // this.trimMessagesStateIfNecessary();
+          }.bind(this),
+          failure: function(xhr, status, err) {
+              console.err(url, status, err.toString());
+          }.bind(this)
+      });
+  },
+  trimMessagesStateIfNecessary: function() {
+      var messages = this.state.messages;
+      var messagesLength = messages.length;
+      var appUiLim = this.props.uiLimit;
 
-    getMessage(sessionStorage.getItem("rmId"), handleData);
+      if (appUiLim < messagesLength) {
+          messages.splice(0, messagesLength - uiLimit);
+      }
+
+      this.setState({messages: messages});
+  },
+  trimMessagesStateIfNecessary: function() {
+      var messages = this.state.messages;
+      var messagesLength = messages.length;
+      var appUiLim = this.props.uiLimit;
+
+      if (appUiLim < messagesLength) {
+          messages.splice(0, messagesLength - uiLimit);
+      }
+
+      this.setState({messages: messages});
   },
   render: function(){
     var msg = this.state.data.map( function(message){
