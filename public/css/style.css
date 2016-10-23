@@ -359,7 +359,8 @@ label {
   background-image: url(../resources/img/next01.png);
   background-size: contain;
   background-repeat: no-repeat;
-  margin-left: 20px;
+  margin-top: -10px;
+  margin-left: 40px;
 }
 
 .plus{
