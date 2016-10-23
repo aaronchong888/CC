@@ -73,15 +73,4 @@ router.post('/insertUser', function (req, res, next) {
     });
 });
 
-router.get('/getUserId', function (req, res, next) {
-  db.getUserId(req.body.name, function (err, rows) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(rows);
-    }
-  })
-});
-
-
 module.exports = router;
