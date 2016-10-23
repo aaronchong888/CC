@@ -309,7 +309,7 @@ label {
 }
 
 .welcome-cover {
-  background: url('../resources/background/logo_002c.jpg') no-repeat;
+  background: url('../resources/background/logo_002c.png') no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
