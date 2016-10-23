@@ -73,14 +73,5 @@ router.post('/insertUser', function (req, res, next) {
     });
 });
 
-router.post('/insertMessage', function (req, res, next) {
-  db.insertMessage(req.rm_id, req.user_id, req.msg_type, req.msg_content, req.time, function( err, result) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(result);
-    }
-  })
-})
 
 module.exports = router;

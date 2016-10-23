@@ -6,6 +6,7 @@ function getCurrUnixTime() {
 
 var Chat = React.createClass({
   getInitialState: function () {
+    socket.on('chat message', this.messageRecieve);
     return ({ data: "data" });
   },
   // handleData: function(rmId){
@@ -192,24 +193,16 @@ var SdMsg = React.createClass({
 
 var ChatBox = React.createClass({
   handleSubmit: function () {
-    console.log('SUBMITTTTTTT');
     var newMsg = {
       rm_id: '1',
       user_id: '1',
       msg_type: 'text',
       msg_content: this.refs.chatbox.value,
     };
-    $.ajax({
-      type: 'POST',
-      url: '/insertMessage',
-      data: newMsg,
-      success: function () {
-        console.log('Successfully insert messages');
-        var messages = this.state.data;
-        var newMessages = data.concat(newMsg);
-        this.setState({ data: newMessages });
-      }
-    });
+    socket.emit('chat message', newMsg);
+    var messages = this.state.data;
+    var newMessages = data.concat(newMsg);
+    this.setState({ data: newMessages });
   },
   render: function () {
     return (
