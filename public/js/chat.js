@@ -8,6 +8,7 @@ var Chat = React.createClass({
   // },
   componentDidMount: function () {
       sessionStorage.setItem("rmId", '1');
+      sessionStorage.setItem("name", 'hugo');
   //   getChatRoom(JSON.parse(sessionStorage.getItem("userInfo")).name, handleData);
   },
   render: function () {
@@ -83,7 +84,7 @@ var ChatPanel = React.createClass({
     return {data: []};
   },
   messageRecieve: function(msgInfo) {
-      if (msgInfo.room_name === roomName) {
+
           // Create a new msgInfo for this current React app
 
           // Hour:Minute time
@@ -95,16 +96,16 @@ var ChatPanel = React.createClass({
           };
 
           // Here we are concatenating the new emitted message into our ChatApp's messages list
-          var messages = this.state.messages;
-          var newMessages = messages.concat(newMsg);
+          var messages = this.state.data;
+          var newMessages = data.concat(newMsg);
           this.setState({data: newMessages});
           // this.trimMessagesStateIfNecessary();
-      }
+
   },
   componentDidMount: function() {
       // On ChatApp load, grab message history of current chat room from the /messages API
       $.ajax({
-          url: '/messages/?chatroom=' + '1' +'&limit=' + limit,
+          url: '/messages/?chatroom=' + '1' +'&limit=' + '20',
           dataType: 'json',
           success: function(data) {
               this.setState({data: data});
@@ -116,15 +117,15 @@ var ChatPanel = React.createClass({
       });
   },
   trimMessagesStateIfNecessary: function() {
-      var messages = this.state.messages;
-      var messagesLength = messages.length;
+      var messages = this.state.data;
+      var messagesLength = data.length;
       var appUiLim = this.props.uiLimit;
 
       if (appUiLim < messagesLength) {
-          messages.splice(0, messagesLength - uiLimit);
+          data.splice(0, messagesLength - uiLimit);
       }
 
-      this.setState({messages: messages});
+      this.setState({data: messages});
   },
   trimMessagesStateIfNecessary: function() {
       var messages = this.state.messages;
@@ -135,14 +136,14 @@ var ChatPanel = React.createClass({
           messages.splice(0, messagesLength - uiLimit);
       }
 
-      this.setState({messages: messages});
+      this.setState({data: messages});
   },
   render: function(){
     var msg = this.state.data.map( function(message){
-      if (message.msg_content){
+      if (JSON.parse(message).msg_content){
         return(
           <div>
-            {message.to_char}
+            {JSON.parse(message).to_char}
           </div>
         );
       }
