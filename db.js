@@ -78,7 +78,7 @@ module.exports = {
         });
     },
     getUserId: function(name, callback) {
-        var getUserIdQueryString = 'SELECT MAX(user_id) AS user_id FROM userinfo';
+        var getUserIdQueryString = 'SELECT user_id FROM userinfo WHERE name =\'' + name + '\'';
         pgQuery(getUserIdQueryString, function(err, result) {
             if (err) {
                 callback(err);

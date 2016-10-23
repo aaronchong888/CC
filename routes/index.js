@@ -64,18 +64,24 @@ router.post('/insertUser', function (req, res, next) {
     req.body.target,
     req.body.country,
     req.body.language,
-    function (response) {
-      console.log(response);
+    function (err, id) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(id);
+      }
     });
 });
 
-router.get('/getUserId', function(req, res, next) {
-  db.getUserId(req.body.name, function (response) {
-    console.log(response);
+router.get('/getUserId', function (req, res, next) {
+  db.getUserId(req.body.name, function (err, rows) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(rows);
+    }
   })
 });
-
-
 
 
 module.exports = router;
