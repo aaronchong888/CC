@@ -235,6 +235,7 @@ label {
 .menuBar {
   width: auto;
   height: 20vh;
+  background-position: center;
   background-image: url(../resources/img/menubar.jpg);
   background-size: contain;
   background-repeat: no-repeat;
