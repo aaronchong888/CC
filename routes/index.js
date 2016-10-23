@@ -66,9 +66,9 @@ router.post('/insertUser', function (req, res, next) {
     req.body.language,
     function (err, id) {
       if (err) {
-        console.log(err);
+        res.send(err);
       } else {
-        console.log(id);
+        res.send(id);
       }
     });
 });
