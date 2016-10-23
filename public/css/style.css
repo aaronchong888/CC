@@ -233,7 +233,7 @@ label {
 }
 
 .menuBar {
-  width: 100vw;
+  width: auto;
   height: 20vh;
   background-image: url(../resources/img/menubar.jpg);
   background-size: contain;
@@ -262,16 +262,16 @@ label {
 }
 
 .fd {
-  width: 12vw;
-  height: 12vw;
+  width: 15vw;
+  height: 15vw;
   background-image: url(../resources/img/friendList.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .mic {
-  width: 12vw;
-  height: 12vw;
+  width: 15vw;
+  height: 15vw;
   background-image: url(../resources/img/broadCast.png);
   background-size: contain;
   background-repeat: no-repeat;
