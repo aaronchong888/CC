@@ -1,4 +1,4 @@
-
+var socket = io();
 var Chat = React.createClass({
   getInitialState: function () {
     return ({data: "data"});
@@ -16,13 +16,13 @@ var Chat = React.createClass({
           <div className="col-xs-2 exit">
           </div>
           <div className="col-xs-2 col-xs-offset-2">
-            <exit-icon />
+            <ExitIcon />
           </div>
           <div className="col-xs-2 col-xs-offset-5 ">
-            <next-icon />
+            <NextIcon />
           </div>
         </div>
-        <chatPanel />
+        <ChatPanel />
         <hr/>
         <div className="row">
           <div className="plus col-xs-2">
@@ -38,9 +38,9 @@ var Chat = React.createClass({
   }
 });
 
-var exit-icon = React.CreateComponent({
+var ExitIcon = React.createClass({
   getInitialState:function(){
-    {data: "data"};
+    return {data: "data"};
   },
 
   handleClick:function(){
@@ -56,17 +56,18 @@ var exit-icon = React.CreateComponent({
   }
 });
 
-var next-icon = React.CreateComponent({
+var NextIcon = React.createClass({
   getInitialState:function(){
-    {data: "data"};
+    return {data: "data"};
   },
   handleErr: function(errMsg){
-    this.setState(data: errMsg);
+    this.setState(data, errMsg);
   },
-  handleClick:function({
-    deleteChatRoom(sessionStorage.getItem("rmId"), handleErr);
+  handleClick:function(){
+    var id = sessionStorage.getItem("rmId");
+    deleteChatRoom(id, handleErr);
     window.location.href = "chat";
-  }),
+  },
   render: function(){
     return (
       <div className="next">
@@ -75,9 +76,9 @@ var next-icon = React.CreateComponent({
   }
 });
 
-var chatPanel = React.CreateComponent({
+var ChatPanel = React.createClass({
   getInitialState:function(){
-    {data: "data"};
+    return {data: "data"};
   },
   handleData:function(msgDetail){
     sessionStorage.setItem("msgDetail", msgDetail);
@@ -100,24 +101,22 @@ var chatPanel = React.CreateComponent({
           </div>
         );
       }
-
     }
+  )
 
-
-  }
-  }
+}
 });
 
-var sdMsg = React.CreateComponent({
+var SdMsg = React.createClass({
   getInitialState: function(){
-    {data: "data"};
+    return {data: "data"};
   },
   onClick: function(){
 
   },
   render: function(){
     return(
-
+      <div></div>
     );
   }
 });
