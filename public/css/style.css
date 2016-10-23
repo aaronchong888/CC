@@ -256,8 +256,12 @@ label {
   margin: 25px -25px;
 }
 
-.matchContainer {
+.matchCol {
   padding: 0;
+}
+
+.matchContainer {
+  
   text-align: center;
 }
 
