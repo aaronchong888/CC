@@ -152,7 +152,7 @@ var MessagesList = React.createClass({
     });
 
     return (
-      <ul className='messagesList'>
+      <ul className='messagesList chat-panel'>
         {messageNodes}
       </ul>
     );
@@ -190,7 +190,7 @@ var Message = React.createClass({
       </li>
     );
   }
->>>>>>> origin/master
+
 });
 
 
