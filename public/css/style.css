@@ -349,7 +349,8 @@ label {
   background-image: url(../resources/img/exit01.png);
   background-size: contain;
   background-repeat: no-repeat;
-  padding-left: 15px;
+  padding-left: 35px;
+  padding-top: 10px;
 }
 
 .next{
@@ -358,6 +359,7 @@ label {
   background-image: url(../resources/img/next01.png);
   background-size: contain;
   background-repeat: no-repeat;
+  padding-left: 20px;
 }
 
 .plus{
@@ -379,4 +381,12 @@ label {
 .name{
   color: #FFFFFF;
   font-size: 22px;
+  padding-top: 10px;
+}
+
+.chat-panel{
+  background-color: transparent;
+  color: #000000;
+  margin-top: 20%;
+  width: 100%;
 }

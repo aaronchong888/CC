@@ -171,7 +171,7 @@ var Message = React.createClass({
         return (
             <li className='message' ref='message'>
                 <span className='messageTime'>{msg.time} </span>
-                <b className='username'>{msg.username}</b> 
+                <b className='username'>{msg.username}</b>
                 <span className='messageText'>: {msg.msg_content}</span>
             </li>
         );
