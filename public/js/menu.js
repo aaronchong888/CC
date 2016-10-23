@@ -1,48 +1,31 @@
 
 var Menu = React.createClass({
   getInitialState: function () {
-    return ({data: "data"});
+    return ({ data: "data" });
   },
   componentDidMount: function () {
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/insertUser',
-    //   data: {
-    //     name: 'Hugo',
-    //     flight: 'CX578',
-    //     type: 'student',
-    //     target: 'business',
-    //     country: 'HK',
-    //   },
-    //   success: function () {
-    //     console.log('Successfully insert new user.');
-    //   }
-    // });
   },
   render: function () {
     return (
-      <div className = "bkground">
-          <div className="menuBar">
-            <div className="col-xs-2 person">
-              <i className="fa fa-user" aria-hidden="true"></i>
-            </div>
-
-            <div className="col-xs-offset-8 col-xs-2 setting">
-
-            </div>
+      <div>
+        <div className="row menuBar">
+          <div className="col-xs-2">
+            <i className="fa fa-user person" aria-hidden="true"></i>
           </div>
-
-          <div className="col-xs-offset-2 col-xs-6 match">
-
+          <div className="col-xs-offset-8 col-xs-2">
+            <i className="fa fa-gear setting" aria-hidden="true"></i>
           </div>
-          <div className="row col-xs-12">
-            <div className="col-xs-2 fd">
-            </div>
-            <div className="col-xs-offset-8 col-xs-2 mic">
-
-            </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="match" />
           </div>
-
+        </div>
+        <div className="row">
+          <div className="col-xs-3 fd">
+          </div>
+          <div className="col-xs-offset-6 col-xs-3 mic" />
+        </div>
       </div>
     );
   }
