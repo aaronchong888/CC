@@ -235,8 +235,6 @@ label {
 .bkground {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  align-content: center;
 }
 
 .menuBar {
@@ -261,8 +259,7 @@ label {
   background-image: url(../resources/img/matching.png);
   background-size: contain;
   background-repeat: no-repeat;
-  width: 60vw;
-  height: 55vh;
+ background-position: center;
 }
 
 .fd {

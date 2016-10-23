@@ -17,7 +17,7 @@ var Menu = React.createClass({
           </div>
         </div>
         <div className="row">
-          <div className="col-xs-offset-2 col-xs-6 match" />
+          <div className="match" />
         </div>
         {/*<div className="row">
           <div className="col-xs-2 fd">
