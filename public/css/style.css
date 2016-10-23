@@ -255,11 +255,16 @@ label {
   margin: 25px -25px;
 }
 
+.matchContainer {
+  display: flux;
+  align-content: center;
+}
+
 .match {
   background-image: url(../resources/img/matching.png);
   background-size: contain;
   background-repeat: no-repeat;
- background-position: center;
+  background-position: center;
 }
 
 .fd {
